@@ -13,97 +13,127 @@ class TabataApp extends StatefulWidget {
 class _TabataAppState extends State<TabataApp> {
   final CountdownController controller = CountdownController();
 
-  bool _isPause = false;
+  bool _isPause = true;
   bool _isRestart = false;
   double _counter = 30;
 
   @override
   Widget build(BuildContext context) {
-    final IconData buttonIcon = (_isPause ? Icons.pause : Icons.play_arrow);
+    final IconData buttonIcon = _isRestart
+        ? Icons.replay_outlined
+        : (_isPause ? Icons.pause : Icons.play_arrow);
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Tabata App",
-        ),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text("Su rutina durara: $_counter segundos."),
-            Countdown(
-              controller: controller,
-              seconds: _counter.toInt(),
-              build: (_, _counter) => Text(
-                _counter.toString(),
-                style: TextStyle(
-                  fontSize: 100,
-                ),
-              ),
-              interval: Duration(milliseconds: 100),
-              onFinished: () {
-                print('Timer is done!');
-
-                setState(() {
-                  _isRestart = true;
-                });
-              },
-            ),
-          ],
-        ),
-      ),
-      endDrawer: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          FloatingActionButton(
-              child: Icon(Icons.remove),
-              onPressed: () {
-                setState(() {
-                  _counter--;
-                });
-              }),
-          SizedBox(height: 20),
-          FloatingActionButton(
-              child: Icon(Icons.add),
-              onPressed: () {
-                setState(() {
-                  _counter++;
-                });
-              }),
-          SizedBox(height: 20),
-          FloatingActionButton(
-            child: Icon(buttonIcon),
-            onPressed: () {
-              final isCompleted = controller.isCompleted;
-              isCompleted ? controller.restart() : controller.pause();
-
-              if (!isCompleted && !_isPause) {
-                controller.resume();
-              }
-
-              if (isCompleted) {
-                setState(() {
-                  _isRestart = false;
-                });
-              } else {
-                setState(() {
-                  _isPause = !_isPause;
-                });
-              }
-            },
+        appBar: AppBar(
+          backgroundColor: Colors.green,
+          title: Text(
+            "Tabata App",
           ),
-          SizedBox(height: 20),
-          FloatingActionButton(
-              child: Icon(Icons.restore),
-              onPressed: () {
-                setState(() {
-                  controller.restart();
-                  controller.pause();
-                });
-              }),
-        ],
-      ),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("Su rutina durara: $_counter segundos."),
+              Countdown(
+                controller: controller,
+                seconds: _counter.toInt(),
+                build: (_, _counter) => Text(
+                  _counter.toString(),
+                  style: TextStyle(
+                    fontSize: 100,
+                  ),
+                ),
+                interval: Duration(milliseconds: 100),
+                onFinished: () {
+                  print('Timer is done!');
+
+                  setState(() {
+                    _isRestart = true;
+                  });
+                },
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+                    children: [
+                      Text("Descanso"),
+                      Text("15",
+                          style: TextStyle(
+                              fontSize: 35, color: Colors.blueAccent)),
+                    ],
+                  ),
+                  SizedBox(width: 50),
+                  Column(
+                    children: [
+                      Text("Reps"),
+                      Text(
+                        "1",
+                        style: TextStyle(fontSize: 35, color: Colors.redAccent),
+                      ),
+                    ],
+                  )
+                ],
+              )
+            ],
+          ),
+        ),
+        endDrawer: _drawer(buttonIcon));
+  }
+
+  Widget _drawer(buttonIcon) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        FloatingActionButton(
+            child: Icon(Icons.remove),
+            onPressed: () {
+              setState(() {
+                _counter--;
+              });
+            }),
+        SizedBox(height: 20),
+        FloatingActionButton(
+            child: Icon(Icons.add),
+            onPressed: () {
+              setState(() {
+                _counter++;
+              });
+            }),
+        SizedBox(height: 20),
+        FloatingActionButton(
+          child: Icon(buttonIcon),
+          onPressed: () {
+            final isCompleted = controller.isCompleted;
+            isCompleted ? controller.restart() : controller.pause();
+
+            if (!isCompleted && !_isPause) {
+              controller.resume();
+            }
+
+            if (isCompleted) {
+              setState(() {
+                _isRestart = false;
+              });
+            } else {
+              setState(() {
+                _isPause = !_isPause;
+              });
+            }
+          },
+        ),
+        SizedBox(height: 20),
+        FloatingActionButton(
+            child: Icon(Icons.restore),
+            onPressed: () {
+              setState(() {
+                controller.restart();
+                controller.pause();
+              });
+            }),
+        SizedBox(height: 20)
+      ],
     );
   }
 }
