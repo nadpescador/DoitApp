@@ -13,15 +13,13 @@ class TabataApp extends StatefulWidget {
 class _TabataAppState extends State<TabataApp> {
   final CountdownController controller = CountdownController();
 
-  bool _isPause = true;
+  bool _isPause = false;
   bool _isRestart = false;
-  double _counter = 0;
+  double _counter = 30;
 
   @override
   Widget build(BuildContext context) {
-    final IconData buttonIcon = _isRestart
-        ? Icons.refresh
-        : (_isPause ? Icons.pause : Icons.play_arrow);
+    final IconData buttonIcon = (_isPause ? Icons.pause : Icons.play_arrow);
 
     return Scaffold(
       appBar: AppBar(
@@ -55,7 +53,7 @@ class _TabataAppState extends State<TabataApp> {
           ],
         ),
       ),
-      floatingActionButton: Column(
+      endDrawer: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           FloatingActionButton(
@@ -95,6 +93,15 @@ class _TabataAppState extends State<TabataApp> {
               }
             },
           ),
+          SizedBox(height: 20),
+          FloatingActionButton(
+              child: Icon(Icons.restore),
+              onPressed: () {
+                setState(() {
+                  controller.restart();
+                  controller.pause();
+                });
+              }),
         ],
       ),
     );
