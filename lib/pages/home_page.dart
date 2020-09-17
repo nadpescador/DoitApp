@@ -65,7 +65,7 @@ Widget _botones(context) {
           ),
           onPressed: () {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => TimerApp()));
+                context, MaterialPageRoute(builder: (context) => TabataApp()));
           },
         ),
       ),
