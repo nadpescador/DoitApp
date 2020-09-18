@@ -16,6 +16,7 @@ class _TabataAppState extends State<TabataApp> {
   bool _isPause = true;
   bool _isRestart = false;
   double _counter = 30;
+  int _reps = 3;
 
   @override
   Widget build(BuildContext context) {
@@ -53,29 +54,7 @@ class _TabataAppState extends State<TabataApp> {
                   });
                 },
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Column(
-                    children: [
-                      Text("Descanso"),
-                      Text("15",
-                          style: TextStyle(
-                              fontSize: 35, color: Colors.blueAccent)),
-                    ],
-                  ),
-                  SizedBox(width: 50),
-                  Column(
-                    children: [
-                      Text("Reps"),
-                      Text(
-                        "1",
-                        style: TextStyle(fontSize: 35, color: Colors.redAccent),
-                      ),
-                    ],
-                  )
-                ],
-              )
+              _descansoReps()
             ],
           ),
         ),
@@ -133,6 +112,43 @@ class _TabataAppState extends State<TabataApp> {
               });
             }),
         SizedBox(height: 20)
+      ],
+    );
+  }
+
+  Widget _descansoReps() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Column(
+          children: [
+            Text("Descanso"),
+            Text("15",
+                style: TextStyle(fontSize: 35, color: Colors.blueAccent)),
+          ],
+        ),
+        SizedBox(width: 50),
+        Column(
+          children: [
+            Text("Reps"),
+            FlatButton(
+              onPressed: () {
+                setState(() {
+                  _reps++;
+                });
+              },
+              onLongPress: () {
+                setState(() {
+                  _reps = 0;
+                });
+              },
+              child: Text(
+                "$_reps",
+                style: TextStyle(fontSize: 35, color: Colors.redAccent),
+              ),
+            ),
+          ],
+        )
       ],
     );
   }
