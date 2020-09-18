@@ -15,9 +15,9 @@ class HomePage extends StatelessWidget {
             'Tabata App',
           ),
         ),
-        backgroundColor: Colors.white12,
+        backgroundColor: Colors.white24,
         body: Center(
-          child: Column(
+          child: ListView(
             children: [
               SizedBox(
                 height: 40,
@@ -31,9 +31,12 @@ class HomePage extends StatelessWidget {
                 height: 25,
               ),
               _botones(context),
-              Spacer(
-                flex: 1,
+              SizedBox(
+                height: 100,
               ),
+              Center(
+                  child: Text("Created by Davincex",
+                      style: TextStyle(color: Colors.white)))
             ],
           ),
         ));
@@ -44,7 +47,7 @@ Widget _botones(context) {
   return Column(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
-      new SizedBox(
+      new Container(
         width: 350,
         height: 60,
         child: new FlatButton(
