@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
-class SobreCreadores extends StatelessWidget {
+class CreatorsPage extends StatelessWidget {
+  final String _imageUrl =
+      "https://cdn.discordapp.com/attachments/690734319903178793/741547159501013052/reunion.jpg";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,7 +18,7 @@ class SobreCreadores extends StatelessWidget {
           child: Column(
             children: [
               Image.network(
-                "https://cdn.discordapp.com/attachments/690734319903178793/741547159501013052/reunion.jpg",
+                _imageUrl,
                 width: 400,
               ),
               SizedBox(height: 20),
