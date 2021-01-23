@@ -7,12 +7,6 @@ class NavigationPage extends StatelessWidget {
     return SafeArea(
         top: true,
         child: Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.green,
-            title: Text(
-              'Tabata App',
-            ),
-          ),
           backgroundColor: Colors.white24,
           body: Container(
             child: Column(
