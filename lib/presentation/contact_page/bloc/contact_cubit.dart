@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
-part 'contact_state.dart';
+import 'contact_page_state.dart';
 
-class ContactCubit extends Cubit<ContactState> {
-  ContactCubit() : super(ContactInitial());
+class ContactCubit extends Cubit<ContactPageState> {
+  ContactCubit() : super(ContactPageState.loading());
 }
