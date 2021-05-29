@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'contact_page_state.dart';
 
@@ -9,45 +9,40 @@ part of 'contact_page_state.dart';
 
 T _$identity<T>(T value) => value;
 
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
 /// @nodoc
 class _$ContactPageStateTearOff {
   const _$ContactPageStateTearOff();
 
+// ignore: unused_element
   ContactPageStateLoading loading() {
     return ContactPageStateLoading();
   }
 }
 
 /// @nodoc
+// ignore: unused_element
 const $ContactPageState = _$ContactPageStateTearOff();
 
 /// @nodoc
 mixin _$ContactPageState {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult Function() loading,
-  }) =>
-      throw _privateConstructorUsedError;
+    @required TResult loading(),
+  });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult Function() loading,
+    TResult loading(),
     @required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult Function(ContactPageStateLoading value) loading,
-  }) =>
-      throw _privateConstructorUsedError;
+    @required TResult loading(ContactPageStateLoading value),
+  });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult Function(ContactPageStateLoading value) loading,
+    TResult loading(ContactPageStateLoading value),
     @required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  });
 }
 
 /// @nodoc
@@ -114,17 +109,19 @@ class _$ContactPageStateLoading
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult Function() loading,
+    @required TResult loading(),
   }) {
+    assert(loading != null);
     return loading();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult Function() loading,
+    TResult loading(),
     @required TResult orElse(),
   }) {
+    assert(orElse != null);
     if (loading != null) {
       return loading();
     }
@@ -134,17 +131,19 @@ class _$ContactPageStateLoading
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult Function(ContactPageStateLoading value) loading,
+    @required TResult loading(ContactPageStateLoading value),
   }) {
+    assert(loading != null);
     return loading(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult Function(ContactPageStateLoading value) loading,
+    TResult loading(ContactPageStateLoading value),
     @required TResult orElse(),
   }) {
+    assert(orElse != null);
     if (loading != null) {
       return loading(this);
     }
