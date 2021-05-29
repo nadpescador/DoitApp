@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tabata/widgets/vertical_buttons_widget.dart/vertical_buttons_widgets.dart';
+import 'package:tabata/presentation/widgets/vertical_buttons_widget.dart/vertical_buttons_widgets.dart';
 
 class NavigationPage extends StatelessWidget {
   @override

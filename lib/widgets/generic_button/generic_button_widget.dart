@@ -32,7 +32,7 @@ class GenericButtonWidget extends StatelessWidget {
         color: bgColor,
         borderRadius: BorderRadius.circular(borderRadius),
       ),
-      child: FlatButton(
+      child: TextButton(
         child: Text(
           buttonLabel,
           style: textStyle,
