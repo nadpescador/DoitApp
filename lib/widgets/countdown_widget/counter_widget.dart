@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
+import 'package:rive/rive.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:tabata/presentation/navigation_page/navigation_page.dart';
@@ -15,7 +17,14 @@ class CounterWidget extends StatelessWidget {
             return state.when(
               playing: (workTime, restTime, repetitions) => Column(
                 children: [
-                  Text('¡TU PUEDES! TE QUEDAN $repetitions RONDAS'),
+                  Text(
+                    '¡TU PUEDES! TE QUEDAN $repetitions RONDAS',
+                    style: TextStyle(
+                      color: Colors.green,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 20,
+                    ),
+                  ),
                   Container(
                     child: CircularCountDownTimer(
                       duration: workTime,
@@ -43,7 +52,14 @@ class CounterWidget extends StatelessWidget {
               ),
               resting: (workTime, restTime, repetitions) => Column(
                 children: [
-                  Text('¡APROVECHA PARA DESCANSAR!'),
+                  Text(
+                    '¡APROVECHA PARA DESCANSAR!',
+                    style: TextStyle(
+                      color: Colors.green,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 20,
+                    ),
+                  ),
                   CircularCountDownTimer(
                     duration: restTime,
                     initialDuration: 0,
@@ -67,16 +83,31 @@ class CounterWidget extends StatelessWidget {
               finished: () => Center(
                 child: Column(
                   children: [
-                    Text('Terminado'),
+                    Text(
+                      '¡Entrenamiento completado!',
+                      style: TextStyle(
+                        color: Colors.green,
+                        fontSize: 24,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    Container(
+                      height: 300,
+                      width: 300,
+                      child: RiveAnimation.asset(
+                        'assets/images/off_road_car.riv',
+                      ),
+                    ),
                     ElevatedButton.icon(
                       onPressed: () {
                         Navigator.pushAndRemoveUntil(
                             context,
-                            MaterialPageRoute(
-                              builder: (context) => NavigationPage(),
+                            PageTransition(
+                              child: NavigationPage(),
+                              type: PageTransitionType.fade,
+                              curve: Curves.decelerate,
                             ),
                             (Route<dynamic> route) => false);
-                        context.read<TabataPageCubit>().playTraining();
                       },
                       icon: Icon(Icons.arrow_back),
                       label: Text('Volver al inicio'),

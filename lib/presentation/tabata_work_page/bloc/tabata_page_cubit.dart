@@ -14,7 +14,7 @@ class TabataPageCubit extends Cubit<TabataPageState> {
     playTraining();
   }
 
-  TabataFormCubit _tabataFormCubit;
+  final TabataFormCubit _tabataFormCubit;
 
   void playTraining() {
     state.maybeWhen(
@@ -22,16 +22,19 @@ class TabataPageCubit extends Cubit<TabataPageState> {
       resting: (workTime, restTime, repetitions) => emit(
         TabataPageState.playing(workTime, restTime, repetitions),
       ),
-      finished: () => emit(TabataPageState.playing(
-        _tabataFormCubit.state.formViewModel.workoutTime,
-        _tabataFormCubit.state.formViewModel.restingTime,
-        _tabataFormCubit.state.formViewModel.repetitions,
-      )),
     );
   }
 
   void finishTraining() {
     emit(TabataPageState.finished());
+  }
+
+  void restartTabata() {
+    emit(TabataPageState.playing(
+      _tabataFormCubit.state.formViewModel.workoutTime,
+      _tabataFormCubit.state.formViewModel.restingTime,
+      _tabataFormCubit.state.formViewModel.repetitions,
+    ));
   }
 
   void startRestingTime() {

@@ -7,12 +7,16 @@ class NavigationPage extends StatelessWidget {
     return SafeArea(
         top: true,
         child: Scaffold(
-          backgroundColor: Colors.white24,
+          backgroundColor: Colors.white,
           body: Container(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Image.asset('assets/images/logotabata.png', scale: 3),
+                Image.asset(
+                  'assets/images/logotabata.png',
+                  scale: 3,
+                  fit: BoxFit.contain,
+                ),
                 VerticalButtons(),
               ],
             ),

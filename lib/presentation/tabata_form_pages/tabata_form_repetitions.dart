@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:numberpicker/numberpicker.dart';
+import 'package:page_transition/page_transition.dart';
+import 'package:tabata/presentation/tabata_work_page/tabata_work_page_loaded.dart';
 import 'package:tabata/resources/text_styles.dart';
 import 'package:tabata/widgets/generic_button/generic_button_widget.dart';
 import 'package:tabata/presentation/tabata_form_pages/cubit/tabata_form_cubit.dart';
@@ -39,8 +41,10 @@ class TabataFormRepetitionsPage extends StatelessWidget {
                               onPressed: () {
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(
-                                    builder: (context) => TabataFormSelectRestingTime(),
+                                  PageTransition(
+                                    child: TabataFormSelectRestingTime(),
+                                    type: PageTransitionType.fade,
+                                    curve: Curves.decelerate,
                                   ),
                                 );
                               },

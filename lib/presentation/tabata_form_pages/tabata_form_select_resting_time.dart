@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:numberpicker/numberpicker.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:tabata/presentation/tabata_form_pages/cubit/tabata_form_cubit.dart';
 import 'package:tabata/presentation/tabata_form_pages/cubit/tabata_form_state.dart';
+import 'package:tabata/presentation/tabata_work_page/bloc/tabata_page_cubit.dart';
 import 'package:tabata/presentation/tabata_work_page/tabata_work_page_loaded.dart';
 import 'package:tabata/resources/text_styles.dart';
 import 'package:tabata/widgets/generic_button/generic_button_widget.dart';
@@ -36,16 +38,16 @@ class TabataFormSelectRestingTime extends StatelessWidget {
                       formVM.restingTime != 0
                           ? GenericButtonWidget(
                               buttonLabel: 'Comenzar a entrenar',
-                              onPressed: () => Navigator.pushAndRemoveUntil(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => TabataWorkPageLoaded(
-                                      restingTime: formVM.restingTime,
-                                      workoutRounds: formVM.repetitions,
-                                      workoutTime: formVM.workoutTime,
+                              onPressed: () {
+                                Navigator.pushAndRemoveUntil(
+                                    context,
+                                    PageTransition(
+                                      child: TabataWorkPageLoaded(),
+                                      type: PageTransitionType.fade,
                                     ),
-                                  ),
-                                  (Route<dynamic> route) => false))
+                                    (Route<dynamic> route) => false);
+                                context.read<TabataPageCubit>().restartTabata();
+                              })
                           : GenericButtonWidget(
                               bgColor: Colors.grey,
                               buttonLabel: 'Comenzar a entrenar',

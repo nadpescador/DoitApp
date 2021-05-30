@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:numberpicker/numberpicker.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:tabata/presentation/tabata_form_pages/cubit/tabata_form_cubit.dart';
 import 'package:tabata/presentation/tabata_form_pages/cubit/tabata_form_state.dart';
 import 'package:tabata/presentation/tabata_form_pages/tabata_form_repetitions.dart';
@@ -45,8 +46,9 @@ class TabataFormSelectWorkoutTime extends StatelessWidget {
                                           onPressed: () {
                                             Navigator.push(
                                               context,
-                                              MaterialPageRoute(
-                                                builder: (context) => TabataFormRepetitionsPage(),
+                                              PageTransition(
+                                                child: TabataFormRepetitionsPage(),
+                                                type: PageTransitionType.fade,
                                               ),
                                             );
                                           },
