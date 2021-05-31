@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:numberpicker/numberpicker.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:tabata/presentation/tabata_work_page/tabata_work_page_loaded.dart';
+import 'package:tabata/resources/values.dart';
+import 'package:tabata/resources/strings.dart';
+import 'package:tabata/resources/dimentions.dart';
 import 'package:tabata/resources/text_styles.dart';
 import 'package:tabata/widgets/generic_button/generic_button_widget.dart';
 import 'package:tabata/presentation/tabata_form_pages/cubit/tabata_form_cubit.dart';
@@ -18,9 +20,9 @@ class TabataFormRepetitionsPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Padding(
-              padding: const EdgeInsets.all(18.0),
+              padding: const EdgeInsets.all(Dimens.form_titles_padding),
               child: Text(
-                '¿Cuantas rondas desea entrenar?',
+                Strings.rounds_per_training_title,
                 style: TextStyles.getPagesTextStyles(context),
               ),
             ),
@@ -31,13 +33,13 @@ class TabataFormRepetitionsPage extends StatelessWidget {
                     children: [
                       NumberPicker(
                         value: formViewModel.repetitions,
-                        minValue: 0,
+                        minValue: Values.initial_tabata,
                         maxValue: 300,
                         onChanged: (value) => context.read<TabataFormCubit>().setRepetitions(value),
                       ),
                       formViewModel.repetitions != 0
                           ? GenericButtonWidget(
-                              buttonLabel: 'Siguiente',
+                              buttonLabel: Strings.form_next_button,
                               onPressed: () {
                                 Navigator.push(
                                   context,
@@ -51,7 +53,7 @@ class TabataFormRepetitionsPage extends StatelessWidget {
                             )
                           : GenericButtonWidget(
                               bgColor: Colors.grey,
-                              buttonLabel: 'Siguiente',
+                              buttonLabel: Strings.form_next_button,
                               onPressed: () => null,
                             ),
                     ],

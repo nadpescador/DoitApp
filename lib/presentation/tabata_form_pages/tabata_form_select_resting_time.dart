@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:numberpicker/numberpicker.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:tabata/resources/strings.dart';
+import 'package:tabata/resources/dimentions.dart';
+import 'package:tabata/resources/text_styles.dart';
+import 'package:tabata/presentation/counter_page/counter_widget.dart';
+import 'package:tabata/widgets/generic_button/generic_button_widget.dart';
+import 'package:tabata/presentation/counter_page/bloc/counter_widget_cubit.dart';
 import 'package:tabata/presentation/tabata_form_pages/cubit/tabata_form_cubit.dart';
 import 'package:tabata/presentation/tabata_form_pages/cubit/tabata_form_state.dart';
-import 'package:tabata/presentation/tabata_work_page/bloc/tabata_page_cubit.dart';
-import 'package:tabata/presentation/tabata_work_page/tabata_work_page_loaded.dart';
-import 'package:tabata/resources/text_styles.dart';
-import 'package:tabata/widgets/generic_button/generic_button_widget.dart';
 
 class TabataFormSelectRestingTime extends StatelessWidget {
   @override
@@ -18,9 +20,9 @@ class TabataFormSelectRestingTime extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Padding(
-              padding: const EdgeInsets.all(18.0),
+              padding: const EdgeInsets.all(Dimens.form_titles_padding),
               child: Text(
-                '¿Cuanto tiempo tendra de descanso? ',
+                Strings.resting_time_between_rounds_title,
                 style: TextStyles.getPagesTextStyles(context),
               ),
             ),
@@ -37,20 +39,20 @@ class TabataFormSelectRestingTime extends StatelessWidget {
                       ),
                       formVM.restingTime != 0
                           ? GenericButtonWidget(
-                              buttonLabel: 'Comenzar a entrenar',
+                              buttonLabel: Strings.start_routine_button,
                               onPressed: () {
                                 Navigator.pushAndRemoveUntil(
                                     context,
                                     PageTransition(
-                                      child: TabataWorkPageLoaded(),
+                                      child: CounterPage(),
                                       type: PageTransitionType.fade,
                                     ),
                                     (Route<dynamic> route) => false);
-                                context.read<TabataPageCubit>().restartTabata();
+                                context.read<CounterPageCubit>().restartTabata();
                               })
                           : GenericButtonWidget(
                               bgColor: Colors.grey,
-                              buttonLabel: 'Comenzar a entrenar',
+                              buttonLabel: Strings.start_routine_button,
                               onPressed: () => null,
                             )
                     ],
