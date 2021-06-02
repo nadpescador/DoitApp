@@ -1,6 +1,7 @@
 class Strings {
 //Form page
   static const start_training = 'Comenzá a entrenar';
+  static const training_historics = 'Historial de entrenamientos';
 
 // Countdown timer
   static const back_to_home = 'Volver al inicio';

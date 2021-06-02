@@ -19,4 +19,6 @@ class AppColors {
   static Color restingTimerBackground = Colors.amber[600];
 
   static const Color tabata_work_background = _bg_grey;
+
+  static const Color home_page_training_historical_button = Colors.orange;
 }

@@ -5,6 +5,10 @@ class Dimens {
   static const form_titles_padding = 18.0;
   static const home_page_padding = 60.0;
 
+  static const home_buttons_padding = 8.0;
+
+  static const home_page_buttons_radius = 15.0;
+
   static _getScreenWidth(BuildContext context) => MediaQuery.of(context).size.width;
 
   static _getScreenHeight(BuildContext context) => MediaQuery.of(context).size.height;

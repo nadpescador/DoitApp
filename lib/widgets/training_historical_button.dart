@@ -8,7 +8,7 @@ import 'package:tabata/resources/box_shadows.dart';
 import 'package:tabata/resources/images/images.dart';
 import 'package:tabata/presentation/tabata_form_pages/cubit/tabata_form_cubit.dart';
 
-class StartTrainingButtonWidget extends StatelessWidget {
+class TrainingHistoricalButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -20,7 +20,7 @@ class StartTrainingButtonWidget extends StatelessWidget {
               AppBoxShadows.home_page_start_training_button,
             ],
             borderRadius: BorderRadius.circular(Dimens.home_page_buttons_radius),
-            color: AppColors.home_page_start_training_button,
+            color: AppColors.home_page_training_historical_button,
           ),
           child: Column(
             children: [
@@ -29,7 +29,7 @@ class StartTrainingButtonWidget extends StatelessWidget {
                 child: FittedBox(
                   fit: BoxFit.fitWidth,
                   child: Text(
-                    Strings.start_training,
+                    Strings.training_historics,
                     style: TextStyles.start_training,
                   ),
                 ),
