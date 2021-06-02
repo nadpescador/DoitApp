@@ -16,7 +16,7 @@ class CounterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200],
+      backgroundColor: AppColors.tabata_work_background,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

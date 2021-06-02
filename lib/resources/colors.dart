@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   static const Color _green = Colors.green;
+  static const Color _bg_grey = Color.fromARGB(255, 246, 238, 238);
   static const Color _grey = Colors.grey;
 
+  //Form
   static const Color home_page_start_training_button = _green;
+  static const Color inactive_button_background = _grey;
 
   //Timer colors
   static Color playingTimerRing = Colors.grey[300];
@@ -15,5 +18,5 @@ class AppColors {
   static Color restingTimerFill = Colors.amber[100];
   static Color restingTimerBackground = Colors.amber[600];
 
-  static Color inactive_button_background = _grey;
+  static const Color tabata_work_background = _bg_grey;
 }
