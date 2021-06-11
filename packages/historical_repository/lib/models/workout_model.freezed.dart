@@ -17,11 +17,13 @@ class _$WorkoutModelTearOff {
   const _$WorkoutModelTearOff();
 
 // ignore: unused_element
-  _WorkoutModel call({int workTime, int restTime, int repetitions}) {
+  _WorkoutModel call(
+      {int workTime, int restTime, int repetitions, String dateTime}) {
     return _WorkoutModel(
       workTime: workTime,
       restTime: restTime,
       repetitions: repetitions,
+      dateTime: dateTime,
     );
   }
 
@@ -40,6 +42,7 @@ mixin _$WorkoutModel {
   int get workTime;
   int get restTime;
   int get repetitions;
+  String get dateTime;
 
   Map<String, dynamic> toJson();
   @JsonKey(ignore: true)
@@ -51,7 +54,7 @@ abstract class $WorkoutModelCopyWith<$Res> {
   factory $WorkoutModelCopyWith(
           WorkoutModel value, $Res Function(WorkoutModel) then) =
       _$WorkoutModelCopyWithImpl<$Res>;
-  $Res call({int workTime, int restTime, int repetitions});
+  $Res call({int workTime, int restTime, int repetitions, String dateTime});
 }
 
 /// @nodoc
@@ -67,12 +70,14 @@ class _$WorkoutModelCopyWithImpl<$Res> implements $WorkoutModelCopyWith<$Res> {
     Object workTime = freezed,
     Object restTime = freezed,
     Object repetitions = freezed,
+    Object dateTime = freezed,
   }) {
     return _then(_value.copyWith(
       workTime: workTime == freezed ? _value.workTime : workTime as int,
       restTime: restTime == freezed ? _value.restTime : restTime as int,
       repetitions:
           repetitions == freezed ? _value.repetitions : repetitions as int,
+      dateTime: dateTime == freezed ? _value.dateTime : dateTime as String,
     ));
   }
 }
@@ -84,7 +89,7 @@ abstract class _$WorkoutModelCopyWith<$Res>
           _WorkoutModel value, $Res Function(_WorkoutModel) then) =
       __$WorkoutModelCopyWithImpl<$Res>;
   @override
-  $Res call({int workTime, int restTime, int repetitions});
+  $Res call({int workTime, int restTime, int repetitions, String dateTime});
 }
 
 /// @nodoc
@@ -102,12 +107,14 @@ class __$WorkoutModelCopyWithImpl<$Res> extends _$WorkoutModelCopyWithImpl<$Res>
     Object workTime = freezed,
     Object restTime = freezed,
     Object repetitions = freezed,
+    Object dateTime = freezed,
   }) {
     return _then(_WorkoutModel(
       workTime: workTime == freezed ? _value.workTime : workTime as int,
       restTime: restTime == freezed ? _value.restTime : restTime as int,
       repetitions:
           repetitions == freezed ? _value.repetitions : repetitions as int,
+      dateTime: dateTime == freezed ? _value.dateTime : dateTime as String,
     ));
   }
 }
@@ -116,7 +123,8 @@ class __$WorkoutModelCopyWithImpl<$Res> extends _$WorkoutModelCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_WorkoutModel implements _WorkoutModel {
-  const _$_WorkoutModel({this.workTime, this.restTime, this.repetitions});
+  const _$_WorkoutModel(
+      {this.workTime, this.restTime, this.repetitions, this.dateTime});
 
   factory _$_WorkoutModel.fromJson(Map<String, dynamic> json) =>
       _$_$_WorkoutModelFromJson(json);
@@ -127,10 +135,12 @@ class _$_WorkoutModel implements _WorkoutModel {
   final int restTime;
   @override
   final int repetitions;
+  @override
+  final String dateTime;
 
   @override
   String toString() {
-    return 'WorkoutModel(workTime: $workTime, restTime: $restTime, repetitions: $repetitions)';
+    return 'WorkoutModel(workTime: $workTime, restTime: $restTime, repetitions: $repetitions, dateTime: $dateTime)';
   }
 
   @override
@@ -145,7 +155,10 @@ class _$_WorkoutModel implements _WorkoutModel {
                     .equals(other.restTime, restTime)) &&
             (identical(other.repetitions, repetitions) ||
                 const DeepCollectionEquality()
-                    .equals(other.repetitions, repetitions)));
+                    .equals(other.repetitions, repetitions)) &&
+            (identical(other.dateTime, dateTime) ||
+                const DeepCollectionEquality()
+                    .equals(other.dateTime, dateTime)));
   }
 
   @override
@@ -153,7 +166,8 @@ class _$_WorkoutModel implements _WorkoutModel {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(workTime) ^
       const DeepCollectionEquality().hash(restTime) ^
-      const DeepCollectionEquality().hash(repetitions);
+      const DeepCollectionEquality().hash(repetitions) ^
+      const DeepCollectionEquality().hash(dateTime);
 
   @JsonKey(ignore: true)
   @override
@@ -167,8 +181,11 @@ class _$_WorkoutModel implements _WorkoutModel {
 }
 
 abstract class _WorkoutModel implements WorkoutModel {
-  const factory _WorkoutModel({int workTime, int restTime, int repetitions}) =
-      _$_WorkoutModel;
+  const factory _WorkoutModel(
+      {int workTime,
+      int restTime,
+      int repetitions,
+      String dateTime}) = _$_WorkoutModel;
 
   factory _WorkoutModel.fromJson(Map<String, dynamic> json) =
       _$_WorkoutModel.fromJson;
@@ -179,6 +196,8 @@ abstract class _WorkoutModel implements WorkoutModel {
   int get restTime;
   @override
   int get repetitions;
+  @override
+  String get dateTime;
   @override
   @JsonKey(ignore: true)
   _$WorkoutModelCopyWith<_WorkoutModel> get copyWith;

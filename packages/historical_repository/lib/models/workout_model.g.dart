@@ -11,6 +11,7 @@ _$_WorkoutModel _$_$_WorkoutModelFromJson(Map<String, dynamic> json) {
     workTime: json['workTime'] as int,
     restTime: json['restTime'] as int,
     repetitions: json['repetitions'] as int,
+    dateTime: json['dateTime'] as String,
   );
 }
 
@@ -19,4 +20,5 @@ Map<String, dynamic> _$_$_WorkoutModelToJson(_$_WorkoutModel instance) =>
       'workTime': instance.workTime,
       'restTime': instance.restTime,
       'repetitions': instance.repetitions,
+      'dateTime': instance.dateTime,
     };

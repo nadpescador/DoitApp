@@ -14,6 +14,7 @@ abstract class WorkoutModel with _$WorkoutModel {
     int workTime,
     int restTime,
     int repetitions,
+    String dateTime,
   }) = _WorkoutModel;
 
   factory WorkoutModel.fromJson(Map<String, dynamic> json) => _$WorkoutModelFromJson(json);

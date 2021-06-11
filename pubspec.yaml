@@ -43,6 +43,7 @@ dependencies:
   carousel_slider: ^3.0.0
   hive: ^2.0.4
   path_provider: ^1.6.27
+  intl: ^0.17.0
 
   persistance_service:  
     path: packages/persistance_service

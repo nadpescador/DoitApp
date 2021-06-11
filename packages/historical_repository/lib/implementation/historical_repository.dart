@@ -14,6 +14,7 @@ class HistoricalRepository {
       repetitions: repetitions,
       restTime: restTime,
       workTime: workTime,
+      dateTime: DateTime.now().toIso8601String(),
     );
 
     persistanceService.persistExercise(newWorkoutModel);
