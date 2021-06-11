@@ -1,11 +1,14 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:historical_repository/historical_repositories.dart';
 import 'package:tabata/presentation/counter_page/bloc/counter_page_state.dart';
 import 'package:tabata/presentation/tabata_form_pages/cubit/tabata_form_cubit.dart';
 
 class CounterPageCubit extends Cubit<CounterPageState> {
   CounterPageCubit(
     TabataFormCubit tabataFormCubit,
+    HistoricalRepository historicalRepository,
   )   : _tabataFormCubit = tabataFormCubit,
+        _historicalRepository = historicalRepository,
         super(CounterPageState.playing(
           tabataFormCubit.state.formViewModel.workoutTime,
           tabataFormCubit.state.formViewModel.restingTime,
@@ -15,6 +18,7 @@ class CounterPageCubit extends Cubit<CounterPageState> {
   }
 
   final TabataFormCubit _tabataFormCubit;
+  final HistoricalRepository _historicalRepository;
 
   void playTraining() {
     state.maybeWhen(
@@ -26,6 +30,11 @@ class CounterPageCubit extends Cubit<CounterPageState> {
   }
 
   void finishTraining() {
+    _historicalRepository.addFinishedExercise(
+      _tabataFormCubit.state.formViewModel.workoutTime,
+      _tabataFormCubit.state.formViewModel.restingTime,
+      _tabataFormCubit.state.formViewModel.repetitions,
+    );
     emit(CounterPageState.finished());
   }
 

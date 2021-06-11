@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tabata/resources/dimentions.dart';
 import 'package:tabata/resources/text_styles.dart';
 import 'package:tabata/resources/box_shadows.dart';
-import 'package:tabata/resources/images/images.dart';
 import 'package:tabata/presentation/tabata_form_pages/cubit/tabata_form_cubit.dart';
 
 class TrainingHistoricalButton extends StatelessWidget {
@@ -15,6 +14,7 @@ class TrainingHistoricalButton extends StatelessWidget {
       padding: const EdgeInsets.all(Dimens.home_buttons_padding),
       child: InkWell(
         child: Container(
+          width: Dimens.homeButtonsWidth(context),
           decoration: BoxDecoration(
             boxShadow: [
               AppBoxShadows.home_page_start_training_button,
@@ -35,10 +35,9 @@ class TrainingHistoricalButton extends StatelessWidget {
                 ),
               ),
               Expanded(
-                child: Image.asset(
-                  AppImages.workout,
-                  fit: BoxFit.cover,
-                  filterQuality: FilterQuality.high,
+                child: Icon(
+                  Icons.history,
+                  size: 150,
                   color: Colors.white,
                 ),
               ),
@@ -47,7 +46,7 @@ class TrainingHistoricalButton extends StatelessWidget {
         ),
         onTap: () {
           context.read<TabataFormCubit>().startNewRoutine();
-          Navigator.pushNamed(context, 'workout');
+          Navigator.pushNamed(context, 'historical');
         },
       ),
     );

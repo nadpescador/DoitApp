@@ -1,9 +1,9 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:tabata/resources/dimentions.dart';
 import 'package:tabata/resources/images/images.dart';
-import 'package:tabata/widgets/start_training_button_widget.dart';
 import 'package:tabata/widgets/training_historical_button.dart';
+import 'package:tabata/widgets/start_training_button_widget.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -23,7 +23,7 @@ class HomePage extends StatelessWidget {
             ),
             CarouselSlider(
               options: CarouselOptions(
-                height: 300,
+                height: Dimens.homeButtonHeight(context),
                 initialPage: 0,
                 viewportFraction: 0.7,
                 enlargeCenterPage: true,

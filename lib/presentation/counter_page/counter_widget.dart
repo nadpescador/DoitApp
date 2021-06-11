@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:rive/rive.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
@@ -7,7 +6,6 @@ import 'package:tabata/resources/colors.dart';
 import 'package:tabata/resources/strings.dart';
 import 'package:tabata/resources/dimentions.dart';
 import 'package:tabata/resources/text_styles.dart';
-import 'package:tabata/resources/images/images.dart';
 import 'package:tabata/presentation/home_page/home_page.dart';
 import 'package:tabata/presentation/counter_page/bloc/counter_page_state.dart';
 import 'package:tabata/presentation/counter_page/bloc/counter_widget_cubit.dart';
@@ -86,9 +84,8 @@ class CounterPage extends StatelessWidget {
                       Container(
                         height: Dimens.trainingFinishedAnimationHeight(context),
                         width: Dimens.trainingFinishedAnimationWidth(context),
-                        child: RiveAnimation.asset(
-                          AppImages.training_done,
-                        ),
+                        //TODO agregar animacion de terminado
+                        child: Container(),
                       ),
                       ElevatedButton.icon(
                         onPressed: () {
