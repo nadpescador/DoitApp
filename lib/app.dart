@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:persistance_service/implementation/persistance_service.dart';
-import 'package:tabata/presentation/historical_trainings/cubit/historical_trainings_cubit.dart';
 import 'package:tabata/presentation/home_page/home_page.dart';
 import 'package:tabata/presentation/error_pages/error_page.dart';
 import 'package:historical_repository/historical_repositories.dart';

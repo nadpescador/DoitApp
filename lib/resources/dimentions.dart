@@ -21,4 +21,9 @@ class Dimens {
 
   static _getScreenWidth(BuildContext context) => MediaQuery.of(context).size.width;
   static _getScreenHeight(BuildContext context) => MediaQuery.of(context).size.height;
+
+  //Historical Training
+  static const historical_training_card_padding = 8.0;
+  static const historical_training_card_border_width = 0.5;
+  static const historical_training_card_border_radius = 15.0;
 }
