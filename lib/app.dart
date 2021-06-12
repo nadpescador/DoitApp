@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:historical_repository/historical_repositories.dart';
 import 'package:persistance_service/implementation/persistance_service.dart';
 import 'package:tabata/presentation/home_page/home_page.dart';
 import 'package:tabata/presentation/error_pages/error_page.dart';
-import 'package:historical_repository/historical_repositories.dart';
 import 'package:tabata/presentation/contact_page/contact_page.dart';
 import 'package:tabata/presentation/tabata_form_pages/initial_form_page.dart';
 import 'package:tabata/presentation/counter_page/bloc/counter_widget_cubit.dart';
@@ -27,9 +27,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(
-          create: (context) => tabataFormCubit,
-        ),
+        BlocProvider(create: (context) => tabataFormCubit),
         BlocProvider(
           create: (_) => CounterPageCubit(
             tabataFormCubit,
