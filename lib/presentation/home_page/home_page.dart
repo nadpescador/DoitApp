@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:nested/nested.dart';
 import 'package:tabata/resources/dimentions.dart';
 import 'package:tabata/resources/images/images.dart';
 import 'package:tabata/widgets/training_historical_button.dart';
@@ -13,12 +14,15 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: Dimens.home_page_padding),
-              child: Image.asset(
-                AppImages.logo_tabata,
-                scale: 3.2,
-                fit: BoxFit.contain,
+            Align(
+              alignment: Alignment.center,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: Dimens.home_page_padding),
+                child: Image.asset(
+                  AppImages.logo_tabata,
+                  scale: 3.2,
+                  fit: BoxFit.contain,
+                ),
               ),
             ),
             CarouselSlider(
