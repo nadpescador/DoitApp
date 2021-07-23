@@ -53,6 +53,7 @@ dependencies:
     path: packages/historical_repository
   tabata_ui:
     path: packages/tabata_ui
+  wakelock: ^0.5.2
 
 dev_dependencies:
   flutter_test:
