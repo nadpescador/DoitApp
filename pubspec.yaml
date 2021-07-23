@@ -44,11 +44,16 @@ dependencies:
   hive: ^2.0.4
   path_provider: ^1.6.27
   intl: ^0.17.0
+  nested: ^1.0.0
+  font_awesome_flutter: ^9.1.0
 
   persistance_service:  
     path: packages/persistance_service
   historical_repository:  
     path: packages/historical_repository
+  tabata_ui:
+    path: packages/tabata_ui
+  wakelock: ^0.5.2
 
 dev_dependencies:
   flutter_test:
