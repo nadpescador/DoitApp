@@ -17,81 +17,74 @@ class HistoricalTrainingsPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(Strings.historical_training_appbar_title),
       ),
-      body: BlocProvider(
-        create: (_) => HistoricalTrainingsCubit(
-          historicalRepository: GetIt.I<HistoricalRepository>(),
-        ),
-        child: BlocBuilder<HistoricalTrainingsCubit, HistoricalTrainingsState>(
-          builder: (_, state) {
-            return state.when(
-              loading: () => Center(
-                child: CircularProgressIndicator(),
-              ),
-              initial: (workouts) {
-                if (workouts.isEmpty || workouts == null)
-                  return Center(
-                    child: Text(
-                      Strings.historical_training_no_workouts,
-                    ),
-                  );
-                else
-                  return Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(Dimens.historical_training_card_padding),
-                        child: Text(
-                          Strings.historicalTrainingLastDate(workouts.last.dateTime),
-                          style: TextStyle(color: AppColors.historical_training_last_date),
-                        ),
+      body: BlocBuilder<HistoricalTrainingsCubit, HistoricalTrainingsState>(
+        builder: (_, state) {
+          return state.when(
+            loading: () => Center(
+              child: CircularProgressIndicator(),
+            ),
+            initial: (workouts) {
+              if (workouts.isEmpty || workouts == null)
+                return Center(
+                  child: Text(
+                    Strings.historical_training_no_workouts,
+                  ),
+                );
+              else
+                return Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(Dimens.historical_training_card_padding),
+                      child: Text(
+                        Strings.historicalTrainingLastDate(workouts.last.dateTime),
+                        style: TextStyle(color: AppColors.historical_training_last_date),
                       ),
-                      Expanded(
-                        child: ListView.builder(
-                          itemCount: workouts.length,
-                          itemBuilder: (_, index) => Column(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(Dimens.historical_training_card_padding),
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      border: Border.all(
-                                        color: AppColors.historical_training_border_color,
-                                        width: Dimens.historical_training_card_border_width,
-                                      ),
-                                      borderRadius:
-                                          BorderRadius.circular(Dimens.historical_training_card_border_radius)),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(Dimens.historical_training_card_padding),
-                                    child: ListTile(
-                                      title: Text(Strings.historicalTrainingCardTitle(workouts[index].workTime)),
-                                      subtitle: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          Text(Strings.historicalTrainingCardTrainingRounds(
-                                              workouts[index].repetitions)),
-                                          Text(
-                                            Strings.historicalTrainingCardTrainingDate(DateFormat('dd/MM/yyyy ')
-                                                .format(DateTime.tryParse(workouts[index].dateTime).toLocal())),
-                                          )
-                                        ],
-                                      ),
-                                      trailing: Icon(
-                                        AppIcons.check_icon,
-                                        color: AppColors.historical_training_trailing_icon_color,
-                                      ),
+                    ),
+                    Expanded(
+                      child: ListView.builder(
+                        itemCount: workouts.length,
+                        itemBuilder: (_, index) => Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(Dimens.historical_training_card_padding),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    border: Border.all(
+                                      color: AppColors.historical_training_border_color,
+                                      width: Dimens.historical_training_card_border_width,
+                                    ),
+                                    borderRadius: BorderRadius.circular(Dimens.historical_training_card_border_radius)),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(Dimens.historical_training_card_padding),
+                                  child: ListTile(
+                                    title: Text(Strings.historicalTrainingCardTitle(workouts[index].workTime)),
+                                    subtitle: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(Strings.historicalTrainingCardTrainingRounds(workouts[index].repetitions)),
+                                        Text(
+                                          Strings.historicalTrainingCardTrainingDate(DateFormat('dd/MM/yyyy ')
+                                              .format(DateTime.tryParse(workouts[index].dateTime).toLocal())),
+                                        )
+                                      ],
+                                    ),
+                                    trailing: Icon(
+                                      AppIcons.check_icon,
+                                      color: AppColors.historical_training_trailing_icon_color,
                                     ),
                                   ),
                                 ),
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ),
-                    ],
-                  );
-              },
-            );
-          },
-        ),
+                    ),
+                  ],
+                );
+            },
+          );
+        },
       ),
     );
   }

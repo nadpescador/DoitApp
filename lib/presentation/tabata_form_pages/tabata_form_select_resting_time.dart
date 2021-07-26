@@ -47,7 +47,7 @@ class TabataFormSelectRestingTime extends StatelessWidget {
                                 Navigator.pushAndRemoveUntil(
                                     context,
                                     PageTransition(
-                                      child: CounterPage(soundProvider: soundProvider),
+                                      child: CounterPage(),
                                       type: PageTransitionType.fade,
                                     ),
                                     (Route<dynamic> route) => false);

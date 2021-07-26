@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:tabata/presentation/home_page/widgets/add_custom_training_item.dart';
 import 'package:tabata/resources/colors.dart';
 import 'package:tabata/resources/strings.dart';
 import 'package:tabata/resources/dimentions.dart';
@@ -17,53 +18,85 @@ class HomePage extends StatelessWidget {
     return SafeArea(
         child: Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.white,
-      ),
-      body: Center(
-        child: Column(
-          children: [
-            TabataLogoWidget(),
-            CarouselSlider(
-              options: CarouselOptions(
-                height: Dimens.homeButtonHeight(context),
-                initialPage: 0,
-                viewportFraction: 0.7,
-                enlargeCenterPage: true,
-                enableInfiniteScroll: false,
-                enlargeStrategy: CenterPageEnlargeStrategy.scale,
-              ),
-              items: [
-                Column(
-                  children: [
-                    Expanded(child: StartTrainingButtonWidget()),
-                    InkWell(
-                      onTap: () {
-                        context.read<CounterPageCubit>().repeatLastTraining();
-                        _openDialog(context);
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Colors.orange,
-                        ),
-                        height: 50,
-                        width: Dimens.repeatLastTrainingWidth(context),
-                        child: Center(
-                          child: Text(
-                            Strings.repeat_last_training,
-                            style: TextStyles.repeat_last_training,
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              TabataLogoWidget(),
+              TrainingHistoricalButton(),
+              Column(
+                children: [
+                  StartTrainingButtonWidget(),
+                  InkWell(
+                    onTap: () {
+                      context.read<CounterPageCubit>().repeatLastTraining();
+                      _openDialog(context);
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          gradient: LinearGradient(colors: [
+                            AppColors.repeatTrainingButtonInitial,
+                            AppColors.repeatTrainingButtonEnd,
+                          ])),
+                      height: 50,
+                      width: Dimens.repeatLastTrainingWidth(context),
+                      child: Center(
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: Padding(
+                            padding: const EdgeInsets.all(12.0),
+                            child: Text(
+                              Strings.repeat_last_training,
+                              style: TextStyles.repeat_last_training,
+                            ),
                           ),
                         ),
                       ),
-                    )
+                    ),
+                  )
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 28.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(28.0),
+                      child: FittedBox(
+                        fit: BoxFit.fitWidth,
+                        child: Text(
+                          'Entrenamientos personalizados',
+                          maxLines: 2,
+                          style: TextStyle(fontWeight: FontWeight.w600),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: CarouselSlider(
+                        options: CarouselOptions(
+                          height: Dimens.carrouselItemHeight(context),
+                          initialPage: 0,
+                          viewportFraction: 0.8,
+                          enlargeCenterPage: false,
+                          enableInfiniteScroll: false,
+                        ),
+                        items: [
+                          AddCustomTrainingItem(),
+                          AddCustomTrainingItem(),
+                          AddCustomTrainingItem(),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
-                TrainingHistoricalButton(),
-              ],
-            ),
-          ],
+              ),
+            ],
+          ),
         ),
       ),
     ));
@@ -73,8 +106,9 @@ class HomePage extends StatelessWidget {
     showGeneralDialog(
         barrierColor: Colors.black.withOpacity(0.5),
         transitionBuilder: (context, a1, a2, widget) {
-          return Transform.translate(
-            offset: Offset.fromDirection(5),
+          final curvedValue = Curves.easeInOutBack.transform(a1.value) - 1;
+          return Transform(
+            transform: Matrix4.translationValues(0, curvedValue * 200, 0),
             child: Opacity(
               opacity: a1.value,
               child: RepeatTrainingDialog(),
