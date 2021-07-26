@@ -19,6 +19,12 @@ class TextStyles {
     fontSize: 20,
   );
 
+  static const repeat_last_training = TextStyle(
+    color: Colors.white,
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+  );
+
   static getPagesTextStyles(BuildContext context) {
     return TextStyle(color: Colors.black, fontSize: 16);
   }

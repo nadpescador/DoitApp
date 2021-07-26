@@ -7,9 +7,11 @@ class Dimens {
   //Home page
   static homeButtonHeight(BuildContext context) => _getScreenHeight(context) * 0.4;
   static homeButtonsWidth(BuildContext context) => _getScreenWidth(context) * 0.7;
-  static const home_page_padding = 60.0;
+  static const home_page_padding = 20.0;
   static const home_buttons_padding = 8.0;
   static const home_page_buttons_radius = 15.0;
+  //Last training button
+  static repeatLastTrainingWidth(BuildContext context) => _getScreenWidth(context) * 0.67;
 
   //Timer
   static timerWidth(BuildContext context) => _getScreenWidth(context) / 2;

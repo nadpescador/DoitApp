@@ -16,9 +16,6 @@ class StartTrainingButtonWidget extends StatelessWidget {
         child: Container(
           width: Dimens.homeButtonsWidth(context),
           decoration: BoxDecoration(
-            boxShadow: [
-              AppBoxShadows.home_page_start_training_button,
-            ],
             borderRadius: BorderRadius.circular(Dimens.home_page_buttons_radius),
             color: AppColors.home_page_start_training_button,
           ),

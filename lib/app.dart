@@ -16,7 +16,6 @@ class App extends StatelessWidget {
     @required this.historicalRepository,
     @required this.persistanceService,
   })  : assert(tabataFormCubit != null),
-        assert(historicalRepository != null),
         assert(historicalRepository != null);
 
   final TabataFormCubit tabataFormCubit;

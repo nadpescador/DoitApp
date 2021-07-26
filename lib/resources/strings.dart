@@ -1,9 +1,10 @@
 import 'package:intl/intl.dart';
 
 class Strings {
-//Form page
+//Home page
   static const start_training = 'Comenzá a entrenar';
   static const training_historics = 'Historial de entrenamientos';
+  static const repeat_last_training = 'Repetir ultimo entrenamiento';
 
 // Countdown timer
   static const back_to_home = 'Volver al inicio';
@@ -18,6 +19,7 @@ class Strings {
   static const resting_time_between_rounds_title = '¿Cuanto tiempo tendra de descanso?';
 
   static const start_routine_button = 'Comenzar el entrenamiento';
+
   static String roundsLeft(int repetitions) => '¡Tu puedes! Te quedan $repetitions rondas';
 
   //Historical Workouts
@@ -30,6 +32,4 @@ class Strings {
 
   static String historicalTrainingCardTrainingRounds(int repetitions) => 'Rondas de entrenamiento: $repetitions';
   static String historicalTrainingCardTrainingDate(String dateTime) => 'El entrenamiento fue el: $dateTime';
-
-//////////////
 }

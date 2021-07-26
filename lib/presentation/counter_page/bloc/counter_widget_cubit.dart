@@ -56,4 +56,11 @@ class CounterPageCubit extends Cubit<CounterPageState> {
       },
     );
   }
+
+  void repeatLastTraining() async {
+    final lastExercise = await _historicalRepository.getLastExercise();
+    _tabataFormCubit.setRepetitions(lastExercise.repetitions);
+    _tabataFormCubit.setWorkoutTime(lastExercise.workTime);
+    _tabataFormCubit.setRestingTime(lastExercise.restTime);
+  }
 }

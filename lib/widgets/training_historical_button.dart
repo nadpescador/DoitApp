@@ -4,7 +4,6 @@ import 'package:tabata/resources/strings.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tabata/resources/dimentions.dart';
 import 'package:tabata/resources/text_styles.dart';
-import 'package:tabata/resources/box_shadows.dart';
 import 'package:tabata/presentation/tabata_form_pages/cubit/tabata_form_cubit.dart';
 
 class TrainingHistoricalButton extends StatelessWidget {
@@ -16,9 +15,6 @@ class TrainingHistoricalButton extends StatelessWidget {
         child: Container(
           width: Dimens.homeButtonsWidth(context),
           decoration: BoxDecoration(
-            boxShadow: [
-              AppBoxShadows.home_page_start_training_button,
-            ],
             borderRadius: BorderRadius.circular(Dimens.home_page_buttons_radius),
             color: AppColors.home_page_training_historical_button,
           ),
