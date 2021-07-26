@@ -1,5 +1,6 @@
 import 'package:hive/hive.dart';
 import 'package:persistance_service/implementation/persistance_service.dart';
+import 'package:sound_provider/sound_provider.dart';
 import 'package:tabata/app.dart';
 import 'package:get_it/get_it.dart';
 import 'package:flutter/material.dart';
@@ -19,9 +20,10 @@ void main() async {
 
   runApp(
     App(
-      historicalRepository: GetIt.I<HistoricalRepository>(),
+      soundProvider: GetIt.I<SoundProvider>(),
       tabataFormCubit: GetIt.I<TabataFormCubit>(),
       persistanceService: GetIt.I<PersistanceService>(),
+      historicalRepository: GetIt.I<HistoricalRepository>(),
     ),
   );
 }

@@ -70,7 +70,7 @@ class HistoricalTrainingsPage extends StatelessWidget {
                                               workouts[index].repetitions)),
                                           Text(
                                             Strings.historicalTrainingCardTrainingDate(DateFormat('dd/MM/yyyy ')
-                                                .format(DateTime.tryParse(workouts[index].dateTime))),
+                                                .format(DateTime.tryParse(workouts[index].dateTime).toLocal())),
                                           )
                                         ],
                                       ),

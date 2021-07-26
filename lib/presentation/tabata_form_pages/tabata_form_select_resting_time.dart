@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:numberpicker/numberpicker.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:sound_provider/sound_provider.dart';
 import 'package:tabata/resources/strings.dart';
 import 'package:tabata/resources/dimentions.dart';
 import 'package:tabata/resources/text_styles.dart';
@@ -14,6 +15,8 @@ import 'package:tabata/presentation/tabata_form_pages/cubit/tabata_form_state.da
 class TabataFormSelectRestingTime extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final soundProvider = context.read<SoundProvider>();
+
     return Scaffold(
       body: Center(
         child: Column(
@@ -44,7 +47,7 @@ class TabataFormSelectRestingTime extends StatelessWidget {
                                 Navigator.pushAndRemoveUntil(
                                     context,
                                     PageTransition(
-                                      child: CounterPage(),
+                                      child: CounterPage(soundProvider: soundProvider),
                                       type: PageTransitionType.fade,
                                     ),
                                     (Route<dynamic> route) => false);
