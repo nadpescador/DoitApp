@@ -12,14 +12,10 @@ import 'package:tabata/presentation/counter_page/bloc/counter_page_state.dart';
 import 'package:tabata/presentation/counter_page/bloc/counter_widget_cubit.dart';
 
 class CounterPage extends StatelessWidget {
-  CounterPage({
-    @required this.soundProvider,
-  }) : assert(soundProvider != null);
-
-  final SoundProvider soundProvider;
-
   @override
   Widget build(BuildContext context) {
+    final soundProvider = context.read<SoundProvider>();
+
     return Scaffold(
       backgroundColor: AppColors.tabata_work_background,
       body: Center(
