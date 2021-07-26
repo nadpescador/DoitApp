@@ -19,4 +19,10 @@ class PersistanceService {
     final exercises = exercisesBox.values.map((exercise) => exercise).toList();
     return exercises.map((exercise) => workoutModelFromJson(exercise)).toList();
   }
+
+  Future<WorkoutModel> getLastExercise() async {
+    final exercisesBox = await Hive.openBox('exercises');
+    final exercises = exercisesBox.values.map((exercise) => exercise).toList();
+    return workoutModelFromJson(exercises.last);
+  }
 }

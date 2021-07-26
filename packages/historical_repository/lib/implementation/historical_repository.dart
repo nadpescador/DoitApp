@@ -23,4 +23,8 @@ class HistoricalRepository {
   Future<List<WorkoutModel>> getFinishedExercises() async {
     return await persistanceService.getExcercises();
   }
+
+  Future<WorkoutModel> getLastExercise() async {
+    return await persistanceService.getLastExercise();
+  }
 }
