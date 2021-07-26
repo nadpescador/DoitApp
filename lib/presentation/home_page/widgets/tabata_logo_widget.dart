@@ -7,32 +7,48 @@ class TabataLogoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.center,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(Dimens.home_page_padding),
-            child: Image.asset(
-              AppImages.logo_tabata,
-              scale: 8.2,
-              fit: BoxFit.contain,
-            ),
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Bienvenido devuelta, usuario',
-                style: TextStyle(fontWeight: FontWeight.w600),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Align(
+        alignment: Alignment.center,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(Dimens.home_page_padding),
+              child: Image.asset(
+                AppImages.logo_tabata,
+                scale: 8.2,
+                fit: BoxFit.contain,
               ),
-              Text(
-                'Hoy tienes agendado entrenamiento de piernas',
-              )
-            ],
-          )
-        ],
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    FittedBox(
+                      fit: BoxFit.fitWidth,
+                      child: Text(
+                        'Bienvenido nuevamente, usuario',
+                        maxLines: 2,
+                        style: TextStyle(fontWeight: FontWeight.w600),
+                      ),
+                    ),
+                    FittedBox(
+                      fit: BoxFit.fitWidth,
+                      child: Text(
+                        'Hoy tienes agendado entrenamiento de piernas',
+                        maxLines: 2,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

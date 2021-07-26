@@ -5,6 +5,8 @@ import 'package:tabata/presentation/counter_page/bloc/counter_widget_cubit.dart'
 import 'package:tabata/presentation/counter_page/counter_widget.dart';
 import 'package:tabata/presentation/tabata_form_pages/cubit/tabata_form_cubit.dart';
 import 'package:tabata/presentation/tabata_form_pages/cubit/tabata_form_state.dart';
+import 'package:tabata/resources/strings.dart';
+import 'package:tabata/resources/text_styles.dart';
 
 class RepeatTrainingDialog extends StatelessWidget {
   const RepeatTrainingDialog({Key key}) : super(key: key);
@@ -17,7 +19,10 @@ class RepeatTrainingDialog extends StatelessWidget {
           started: (formViewModel) => AlertDialog(
             shape: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0)),
             title: FittedBox(
-              child: Text('Empezara a entrenar con estos tiempos: '),
+              child: Text(
+                Strings.alert_dialog_repeat_training,
+                style: TextStyles.alert_dialog_title,
+              ),
               fit: BoxFit.fitWidth,
             ),
             content: Container(

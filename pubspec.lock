@@ -15,6 +15,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.41.2"
+  angles:
+    dependency: "direct main"
+    description:
+      name: angles
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.0"
   animated_text_kit:
     dependency: transitive
     description:

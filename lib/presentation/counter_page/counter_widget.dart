@@ -7,6 +7,7 @@ import 'package:tabata/resources/colors.dart';
 import 'package:tabata/resources/strings.dart';
 import 'package:tabata/resources/dimentions.dart';
 import 'package:tabata/resources/text_styles.dart';
+import 'package:tabata/widgets/check_animation.dart';
 import 'package:tabata/presentation/home_page/home_page.dart';
 import 'package:tabata/presentation/counter_page/bloc/counter_page_state.dart';
 import 'package:tabata/presentation/counter_page/bloc/counter_widget_cubit.dart';
@@ -97,11 +98,9 @@ class CounterPage extends StatelessWidget {
                         Strings.training_completed_label,
                         style: TextStyles.training_completed_label,
                       ),
-                      Container(
-                        height: Dimens.trainingFinishedAnimationHeight(context),
-                        width: Dimens.trainingFinishedAnimationWidth(context),
-                        //TODO agregar animacion de terminado
-                        child: Container(),
+                      Padding(
+                        padding: EdgeInsets.symmetric(vertical: Dimens.animation_widget),
+                        child: CheckAnimation(),
                       ),
                       ElevatedButton.icon(
                         onPressed: () {

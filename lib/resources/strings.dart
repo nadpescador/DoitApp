@@ -20,6 +20,11 @@ class Strings {
 
   static const start_routine_button = 'Comenzar el entrenamiento';
 
+  static const alert_dialog_repeat_training = 'Empezara a entrenar con estos tiempos: ';
+
+  static const training_button_description =
+      'Comienza un nuevo entrenamiento, seleccionando los tiempos que mas se adecuen a ti.';
+
   static String roundsLeft(int repetitions) => '¡Tu puedes! Te quedan $repetitions rondas';
 
   //Historical Workouts

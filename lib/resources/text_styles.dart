@@ -19,6 +19,11 @@ class TextStyles {
     fontSize: 20,
   );
 
+  static const TextStyle alert_dialog_title = TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: 18,
+  );
+
   static const repeat_last_training = TextStyle(
     color: Colors.white,
     fontSize: 16,

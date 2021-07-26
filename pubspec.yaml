@@ -58,6 +58,7 @@ dependencies:
     path: packages/sound_provider
   tabata_ui:
     path: packages/tabata_ui
+  angles: ^2.1.0
 
 dev_dependencies:
   flutter_test:

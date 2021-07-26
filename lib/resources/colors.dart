@@ -4,6 +4,8 @@ class AppColors {
   static const Color _green = Colors.green;
   static const Color _bg_grey = Color.fromARGB(255, 246, 238, 238);
   static const Color _grey = Colors.grey;
+  static Color repeatTrainingButtonInitial = Colors.blue.withOpacity(0.8);
+  static Color repeatTrainingButtonEnd = Colors.blue;
 
   //Form
   static const Color home_page_start_training_button = _green;
@@ -20,7 +22,11 @@ class AppColors {
 
   static const Color tabata_work_background = _bg_grey;
 
-  static const Color home_page_training_historical_button = Colors.orange;
+  static Color homePageTrainingHistoricalButtonInitial = Colors.orange.withOpacity(0.8);
+  static Color homePageTrainingHistoricalButtonEnd = Colors.orange;
+
+  static Color homePageTrainingButtonInitial = Colors.green.withOpacity(0.8);
+  static Color homePageTrainingButtonEnd = Colors.green;
 
   //Historical Training
   static const Color historical_training_last_date = _grey;
