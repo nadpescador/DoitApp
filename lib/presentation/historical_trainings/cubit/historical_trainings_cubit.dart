@@ -15,6 +15,7 @@ class HistoricalTrainingsCubit extends Cubit<HistoricalTrainingsState> {
   HistoricalRepository historicalRepository;
 
   void getWorkoutsFromPersistance() async {
+    emit(HistoricalTrainingsState.loading());
     final workouts = await historicalRepository.getFinishedExercises();
 
     emit(HistoricalTrainingsState.initial(workouts));

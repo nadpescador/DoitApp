@@ -12,66 +12,77 @@ import 'package:tabata/presentation/historical_trainings/cubit/historical_traini
 class TrainingHistoricalButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    context.read<HistoricalTrainingsCubit>().getWorkoutsFromPersistance();
+
     return BlocBuilder<HistoricalTrainingsCubit, HistoricalTrainingsState>(
       builder: (context, state) {
-        return Padding(
-          padding: const EdgeInsets.all(Dimens.home_buttons_padding),
-          child: InkWell(
-            child: Container(
-              height: Dimens.homeButtonHeight(context),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(Dimens.home_page_buttons_radius),
-                gradient: LinearGradient(colors: [
-                  AppColors.homePageTrainingHistoricalButtonInitial,
-                  AppColors.homePageTrainingHistoricalButtonEnd,
-                ]),
-              ),
-              child: Column(
-                children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(Dimens.start_training_button_title_padding),
-                        child: FittedBox(
-                          fit: BoxFit.fitWidth,
-                          child: Text(
-                            Strings.training_historics,
-                            style: TextStyles.start_training,
-                          ),
-                        ),
+        return state.when(
+            initial: (data) {
+              if (data.isEmpty) {
+                return SizedBox.shrink();
+              } else
+                return Padding(
+                  padding: const EdgeInsets.all(Dimens.home_buttons_padding),
+                  child: InkWell(
+                    child: Container(
+                      height: Dimens.homeButtonHeight(context),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(Dimens.home_page_buttons_radius),
+                        gradient: LinearGradient(colors: [
+                          AppColors.homePageTrainingHistoricalButtonInitial,
+                          AppColors.homePageTrainingHistoricalButtonEnd,
+                        ]),
                       ),
-                    ],
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                    child: Row(
-                      children: [
-                        Text(
-                          'Su ultimo entrenamiento fue el: ',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        state.when(
-                            initial: (workoutModel) => Text(
-                                  DateFormat('dd/MM/yyyy ')
-                                      .format(DateTime.tryParse(workoutModel.last.dateTime).toLocal()),
+                      child: Column(
+                        children: [
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(Dimens.start_training_button_title_padding),
+                                child: FittedBox(
+                                  fit: BoxFit.fitWidth,
+                                  child: Text(
+                                    Strings.training_historics,
+                                    style: TextStyles.start_training,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                            child: Row(
+                              children: [
+                                Text(
+                                  'Su ultimo entrenamiento fue el: ',
                                   style: TextStyle(color: Colors.white),
                                 ),
-                            loading: () => Center(
-                                  child: CircularProgressIndicator(),
-                                )),
-                      ],
+                                state.when(
+                                    initial: (workoutModel) => Text(
+                                          DateFormat('dd/MM/yyyy ')
+                                              .format(DateTime.tryParse(workoutModel.last.dateTime).toLocal() ?? '-'),
+                                          style: TextStyle(color: Colors.white),
+                                        ),
+                                    loading: () => Center(
+                                          child: CircularProgressIndicator(),
+                                        )),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
+                    onTap: () {
+                      context.read<TabataFormCubit>().startNewRoutine();
+                      Navigator.pushNamed(context, 'historical');
+                    },
                   ),
-                ],
-              ),
-            ),
-            onTap: () {
-              context.read<TabataFormCubit>().startNewRoutine();
-              Navigator.pushNamed(context, 'historical');
+                );
             },
-          ),
-        );
+            loading: () => Center(
+                  child: CircularProgressIndicator(),
+                ));
       },
     );
   }

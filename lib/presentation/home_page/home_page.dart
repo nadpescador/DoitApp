@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:tabata/presentation/historical_trainings/cubit/historical_trainings_cubit.dart';
+import 'package:tabata/presentation/historical_trainings/cubit/historical_trainings_state.dart';
 import 'package:tabata/presentation/home_page/widgets/add_custom_training_item.dart';
 import 'package:tabata/resources/colors.dart';
 import 'package:tabata/resources/strings.dart';
@@ -29,36 +31,53 @@ class HomePage extends StatelessWidget {
               Column(
                 children: [
                   StartTrainingButtonWidget(),
-                  InkWell(
-                    onTap: () {
-                      context.read<CounterPageCubit>().repeatLastTraining();
-                      _openDialog(context);
-                    },
-                    child: Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          gradient: LinearGradient(colors: [
-                            AppColors.repeatTrainingButtonInitial,
-                            AppColors.repeatTrainingButtonEnd,
-                          ])),
-                      height: 50,
-                      width: Dimens.repeatLastTrainingWidth(context),
-                      child: Center(
-                        child: Align(
-                          alignment: Alignment.centerLeft,
-                          child: Padding(
-                            padding: const EdgeInsets.all(12.0),
-                            child: Text(
-                              Strings.repeat_last_training,
-                              style: TextStyles.repeat_last_training,
+                  BlocBuilder<HistoricalTrainingsCubit, HistoricalTrainingsState>(
+                    builder: (context, state) {
+                      return state.when(
+                        initial: (data) => InkWell(
+                          onTap: () {
+                            if (data.isNotEmpty) {
+                              context.read<CounterPageCubit>().repeatLastTraining();
+                              _openDialog(context);
+                            } else {}
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15),
+                                gradient: data.isNotEmpty
+                                    ? LinearGradient(colors: [
+                                        AppColors.repeatTrainingButtonInitial,
+                                        AppColors.repeatTrainingButtonEnd,
+                                      ])
+                                    : LinearGradient(colors: [
+                                        Colors.grey,
+                                        Colors.grey,
+                                      ])),
+                            height: 50,
+                            width: Dimens.repeatLastTrainingWidth(context),
+                            child: Center(
+                              child: Align(
+                                alignment: Alignment.centerLeft,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(12.0),
+                                  child: Text(
+                                    Strings.repeat_last_training,
+                                    style: TextStyles.repeat_last_training,
+                                  ),
+                                ),
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ),
+                        loading: () => Center(
+                          child: CircularProgressIndicator(),
+                        ),
+                      );
+                    },
                   )
                 ],
               ),
+              Spacer(),
               Padding(
                 padding: const EdgeInsets.only(top: 28.0),
                 child: Column(
