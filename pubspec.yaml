@@ -46,7 +46,7 @@ dependencies:
   intl: ^0.17.0
   nested: ^1.0.0
   font_awesome_flutter: ^9.1.0
-  wakelock: ^0.5.2
+  wakelock: ^0.6.2
   assets_audio_player: ^1.2.7
 
 
