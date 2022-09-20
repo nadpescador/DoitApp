@@ -6,15 +6,20 @@ import 'package:tabata/resources/values.dart';
 import 'package:tabata/resources/strings.dart';
 import 'package:tabata/resources/dimentions.dart';
 import 'package:tabata/resources/text_styles.dart';
+import 'package:tabata/widgets/general_appbar_widget.dart';
 import 'package:tabata/widgets/generic_button/generic_button_widget.dart';
 import 'package:tabata/presentation/tabata_form_pages/cubit/tabata_form_cubit.dart';
 import 'package:tabata/presentation/tabata_form_pages/cubit/tabata_form_state.dart';
 import 'package:tabata/presentation/tabata_form_pages/tabata_form_select_resting_time.dart';
+import 'package:tabata/widgets/shake_animation_widget.dart';
 
 class TabataFormRepetitionsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: GeneralAppbarWidget(
+        appbarTitle: 'Repeticiones',
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -51,10 +56,12 @@ class TabataFormRepetitionsPage extends StatelessWidget {
                                 );
                               },
                             )
-                          : GenericButtonWidget(
-                              bgColor: Colors.grey,
-                              buttonLabel: Strings.form_next_button,
-                              onPressed: () => null,
+                          : ShakeAnimationWidget(
+                              child: GenericButtonWidget(
+                                bgColor: Colors.grey,
+                                buttonLabel: Strings.form_next_button,
+                                onPressed: () => null,
+                              ),
                             ),
                     ],
                   ),

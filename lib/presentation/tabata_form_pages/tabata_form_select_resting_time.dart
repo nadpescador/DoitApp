@@ -7,17 +7,18 @@ import 'package:tabata/resources/strings.dart';
 import 'package:tabata/resources/dimentions.dart';
 import 'package:tabata/resources/text_styles.dart';
 import 'package:tabata/presentation/counter_page/counter_widget.dart';
+import 'package:tabata/widgets/general_appbar_widget.dart';
 import 'package:tabata/widgets/generic_button/generic_button_widget.dart';
 import 'package:tabata/presentation/counter_page/bloc/counter_widget_cubit.dart';
 import 'package:tabata/presentation/tabata_form_pages/cubit/tabata_form_cubit.dart';
 import 'package:tabata/presentation/tabata_form_pages/cubit/tabata_form_state.dart';
+import 'package:tabata/widgets/shake_animation_widget.dart';
 
 class TabataFormSelectRestingTime extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final soundProvider = context.read<SoundProvider>();
-
     return Scaffold(
+      appBar: GeneralAppbarWidget(appbarTitle: 'Resting time'),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -53,10 +54,12 @@ class TabataFormSelectRestingTime extends StatelessWidget {
                                     (Route<dynamic> route) => false);
                                 context.read<CounterPageCubit>().restartTabata();
                               })
-                          : GenericButtonWidget(
-                              bgColor: Colors.grey,
-                              buttonLabel: Strings.start_routine_button,
-                              onPressed: () => null,
+                          : ShakeAnimationWidget(
+                              child: GenericButtonWidget(
+                                bgColor: Colors.grey,
+                                buttonLabel: Strings.start_routine_button,
+                                onPressed: () => null,
+                              ),
                             )
                     ],
                   ),

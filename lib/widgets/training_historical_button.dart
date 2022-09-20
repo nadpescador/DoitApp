@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:tabata/presentation/historical_trainings/historical_trainings_page.dart';
 import 'package:tabata/resources/colors.dart';
 import 'package:tabata/resources/strings.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,6 +9,7 @@ import 'package:tabata/resources/text_styles.dart';
 import 'package:tabata/presentation/tabata_form_pages/cubit/tabata_form_cubit.dart';
 import 'package:tabata/presentation/historical_trainings/cubit/historical_trainings_state.dart';
 import 'package:tabata/presentation/historical_trainings/cubit/historical_trainings_cubit.dart';
+import 'package:tabata/resources/values.dart';
 
 class TrainingHistoricalButton extends StatelessWidget {
   @override
@@ -75,7 +77,14 @@ class TrainingHistoricalButton extends StatelessWidget {
                     ),
                     onTap: () {
                       context.read<TabataFormCubit>().startNewRoutine();
-                      Navigator.pushNamed(context, 'historical');
+                      Navigator.push(
+                        context,
+                        PageRouteBuilder(
+                          pageBuilder: (c, a1, a2) => HistoricalTrainingsPage(),
+                          transitionsBuilder: (c, anim, a2, child) => FadeTransition(opacity: anim, child: child),
+                          transitionDuration: Duration(milliseconds: Values.transition_page_duration),
+                        ),
+                      );
                     },
                   ),
                 );

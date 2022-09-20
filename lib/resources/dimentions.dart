@@ -14,7 +14,7 @@ class Dimens {
   static const home_page_buttons_radius = 20.0;
 
   //Last training button
-  static repeatLastTrainingWidth(BuildContext context) => _getScreenWidth(context) * 0.9;
+  static repeatLastTrainingWidth(BuildContext context) => _getScreenWidth(context) * 0.92;
 
   //Timer
   static timerWidth(BuildContext context) => _getScreenWidth(context) / 2;

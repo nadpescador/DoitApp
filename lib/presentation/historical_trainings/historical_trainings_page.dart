@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:get_it/get_it.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tabata/resources/colors.dart';
 import 'package:tabata/resources/strings.dart';
 import 'package:tabata/resources/dimentions.dart';
 import 'package:tabata/resources/images/icons.dart';
-import 'package:historical_repository/implementation/historical_repository.dart';
 import 'package:tabata/presentation/historical_trainings/cubit/historical_trainings_cubit.dart';
 import 'package:tabata/presentation/historical_trainings/cubit/historical_trainings_state.dart';
+import 'package:tabata/widgets/general_appbar_widget.dart';
+import 'package:tabata/widgets/shake_animation_widget.dart';
 
 class HistoricalTrainingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(Strings.historical_training_appbar_title),
+      appBar: GeneralAppbarWidget(
+        appbarTitle: Strings.historical_training_appbar_title,
       ),
       body: BlocBuilder<HistoricalTrainingsCubit, HistoricalTrainingsState>(
         builder: (_, state) {
@@ -43,40 +43,46 @@ class HistoricalTrainingsPage extends StatelessWidget {
                     Expanded(
                       child: ListView.builder(
                         itemCount: workouts.length,
-                        itemBuilder: (_, index) => Column(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(Dimens.historical_training_card_padding),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    border: Border.all(
-                                      color: AppColors.historical_training_border_color,
-                                      width: Dimens.historical_training_card_border_width,
-                                    ),
-                                    borderRadius: BorderRadius.circular(Dimens.historical_training_card_border_radius)),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(Dimens.historical_training_card_padding),
-                                  child: ListTile(
-                                    title: Text(Strings.historicalTrainingCardTitle(workouts[index].workTime)),
-                                    subtitle: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Text(Strings.historicalTrainingCardTrainingRounds(workouts[index].repetitions)),
-                                        Text(
-                                          Strings.historicalTrainingCardTrainingDate(DateFormat('dd/MM/yyyy ')
-                                              .format(DateTime.tryParse(workouts[index].dateTime).toLocal())),
-                                        )
-                                      ],
-                                    ),
-                                    trailing: Icon(
-                                      AppIcons.check_icon,
-                                      color: AppColors.historical_training_trailing_icon_color,
+                        itemBuilder: (_, index) => ShakeAnimationWidget(
+                          offset: 340 + (index * 10.0),
+                          duration: Duration(milliseconds: 600 + (index * 100)),
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(Dimens.historical_training_card_padding),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      border: Border.all(
+                                        color: AppColors.historical_training_border_color,
+                                        width: Dimens.historical_training_card_border_width,
+                                      ),
+                                      borderRadius:
+                                          BorderRadius.circular(Dimens.historical_training_card_border_radius)),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(Dimens.historical_training_card_padding),
+                                    child: ListTile(
+                                      title: Text(Strings.historicalTrainingCardTitle(workouts[index].workTime)),
+                                      subtitle: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text(Strings.historicalTrainingCardTrainingRounds(
+                                              workouts[index].repetitions)),
+                                          Text(
+                                            Strings.historicalTrainingCardTrainingDate(DateFormat('dd/MM/yyyy ')
+                                                .format(DateTime.tryParse(workouts[index].dateTime).toLocal())),
+                                          )
+                                        ],
+                                      ),
+                                      trailing: Icon(
+                                        AppIcons.check_icon,
+                                        color: AppColors.historical_training_trailing_icon_color,
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ),

@@ -39,30 +39,33 @@ class HomePage extends StatelessWidget {
                             if (data.isNotEmpty) {
                               context.read<CounterPageCubit>().repeatLastTraining();
                               _openDialog(context);
-                            } else {}
+                            }
                           },
-                          child: Container(
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15),
-                                gradient: data.isNotEmpty
-                                    ? LinearGradient(colors: [
-                                        AppColors.repeatTrainingButtonInitial,
-                                        AppColors.repeatTrainingButtonEnd,
-                                      ])
-                                    : LinearGradient(colors: [
-                                        Colors.grey,
-                                        Colors.grey,
-                                      ])),
-                            height: 50,
-                            width: Dimens.repeatLastTrainingWidth(context),
-                            child: Center(
-                              child: Align(
-                                alignment: Alignment.centerLeft,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(12.0),
-                                  child: Text(
-                                    Strings.repeat_last_training,
-                                    style: TextStyles.repeat_last_training,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 8.0),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(15),
+                                  gradient: data.isNotEmpty
+                                      ? LinearGradient(colors: [
+                                          AppColors.repeatTrainingButtonInitial,
+                                          AppColors.repeatTrainingButtonEnd,
+                                        ])
+                                      : LinearGradient(colors: [
+                                          Colors.grey,
+                                          Colors.grey,
+                                        ])),
+                              height: 50,
+                              width: Dimens.repeatLastTrainingWidth(context),
+                              child: Center(
+                                child: Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(12.0),
+                                    child: Text(
+                                      Strings.repeat_last_training,
+                                      style: TextStyles.repeat_last_training,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -101,7 +104,7 @@ class HomePage extends StatelessWidget {
                           height: Dimens.carrouselItemHeight(context),
                           initialPage: 0,
                           viewportFraction: 0.8,
-                          enlargeCenterPage: false,
+                          enlargeCenterPage: true,
                           enableInfiniteScroll: false,
                         ),
                         items: [
@@ -114,6 +117,7 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
               ),
+              SizedBox(height: 20)
             ],
           ),
         ),

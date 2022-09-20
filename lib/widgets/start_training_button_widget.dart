@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:tabata/presentation/tabata_form_pages/initial_form_page.dart';
 import 'package:tabata/resources/colors.dart';
 import 'package:tabata/resources/strings.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tabata/resources/dimentions.dart';
 import 'package:tabata/resources/text_styles.dart';
 import 'package:tabata/presentation/tabata_form_pages/cubit/tabata_form_cubit.dart';
+import 'package:tabata/resources/values.dart';
 
 class StartTrainingButtonWidget extends StatelessWidget {
   @override
@@ -53,7 +55,14 @@ class StartTrainingButtonWidget extends StatelessWidget {
         ),
         onTap: () {
           context.read<TabataFormCubit>().startNewRoutine();
-          Navigator.pushNamed(context, 'workout');
+          Navigator.push(
+            context,
+            PageRouteBuilder(
+              pageBuilder: (c, a1, a2) => InitialFormPage(),
+              transitionsBuilder: (c, anim, a2, child) => FadeTransition(opacity: anim, child: child),
+              transitionDuration: Duration(milliseconds: Values.transition_page_duration),
+            ),
+          );
         },
       ),
     );

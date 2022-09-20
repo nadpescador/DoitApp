@@ -11,6 +11,7 @@ import 'package:tabata/widgets/generic_button/generic_button_widget.dart';
 import 'package:tabata/presentation/tabata_form_pages/cubit/tabata_form_cubit.dart';
 import 'package:tabata/presentation/tabata_form_pages/cubit/tabata_form_state.dart';
 import 'package:tabata/presentation/tabata_form_pages/tabata_form_repetitions.dart';
+import 'package:tabata/widgets/shake_animation_widget.dart';
 
 class TabataFormSelectWorkoutTime extends StatelessWidget {
   @override
@@ -41,26 +42,30 @@ class TabataFormSelectWorkoutTime extends StatelessWidget {
                       ),
                     ),
                     tabataFormVM.workoutTime != 0
-                        ? Column(
-                            children: [
-                              GenericButtonWidget(
-                                buttonLabel: Strings.form_next_button,
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    PageTransition(
-                                      child: TabataFormRepetitionsPage(),
-                                      type: PageTransitionType.fade,
-                                    ),
-                                  );
-                                },
-                              ),
-                            ],
+                        ? ShakeAnimationWidget(
+                            duration: Duration(milliseconds: 900),
+                            offset: 340,
+                            child: GenericButtonWidget(
+                              buttonLabel: Strings.form_next_button,
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  PageTransition(
+                                    child: TabataFormRepetitionsPage(),
+                                    type: PageTransitionType.fade,
+                                  ),
+                                );
+                              },
+                            ),
                           )
-                        : GenericButtonWidget(
-                            bgColor: AppColors.inactive_button_background,
-                            buttonLabel: Strings.form_next_button,
-                            onPressed: () => null,
+                        : ShakeAnimationWidget(
+                            duration: Duration(milliseconds: 900),
+                            offset: 340,
+                            child: GenericButtonWidget(
+                              bgColor: AppColors.inactive_button_background,
+                              buttonLabel: Strings.form_next_button,
+                              onPressed: () => null,
+                            ),
                           )
                   ],
                 ),
