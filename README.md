@@ -1,4 +1,4 @@
-# Tabata
+# DoItApp
 
 ## Una app funcional de tabata 
 
