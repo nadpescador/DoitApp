@@ -7,6 +7,7 @@ import 'package:persistance_service/implementation/persistance_service.dart';
 import 'package:tabata/presentation/error_pages/error_page.dart';
 import 'package:tabata/presentation/contact_page/contact_page.dart';
 import 'package:tabata/presentation/login_page/page/login_page.dart';
+import 'package:tabata/presentation/login_page/page/user_login.dart';
 
 class App extends StatelessWidget {
   App({
@@ -25,8 +26,10 @@ class App extends StatelessWidget {
       create: (context) => soundProvider,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: const LoginPage(),
+        initialRoute: 'login',
         routes: {
+          'userLogin': (context) => const UserLogin(),
+          'login': (context) => const LoginPage(),
           'error': (context) => ErrorPage(),
           'contact': (context) => ContactPage(),
         },
