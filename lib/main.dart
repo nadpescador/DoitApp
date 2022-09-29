@@ -6,7 +6,6 @@ import 'package:get_it/get_it.dart';
 import 'package:flutter/material.dart';
 import 'package:tabata/core/dependency_injection.dart' as inj;
 import 'package:historical_repository/historical_repositories.dart';
-import 'package:tabata/presentation/tabata_form_pages/cubit/tabata_form_cubit.dart';
 import 'package:wakelock/wakelock.dart';
 
 void main() async {
@@ -21,7 +20,6 @@ void main() async {
   runApp(
     App(
       soundProvider: GetIt.I<SoundProvider>(),
-      tabataFormCubit: GetIt.I<TabataFormCubit>(),
       persistanceService: GetIt.I<PersistanceService>(),
       historicalRepository: GetIt.I<HistoricalRepository>(),
     ),

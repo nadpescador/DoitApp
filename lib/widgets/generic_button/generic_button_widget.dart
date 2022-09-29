@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 
 class GenericButtonWidget extends StatelessWidget {
   const GenericButtonWidget({
-    this.buttonLabel,
+    required this.buttonLabel,
     this.borderRadius = 10,
     this.bgColor = Colors.green,
-    this.onPressed,
+    required this.onPressed,
     this.widthRatio = 0.75,
-    this.textStyle = const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
-    Key key,
+    this.textStyle = const TextStyle(
+        color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+    Key? key,
   })  : assert(buttonLabel != null),
         assert(
           onPressed != null,
