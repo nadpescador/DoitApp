@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:tabata/presentation/tabata_form_pages/initial_form_page.dart';
 import 'package:tabata/resources/colors.dart';
-import 'package:tabata/resources/strings.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tabata/resources/dimentions.dart';
 import 'package:tabata/resources/text_styles.dart';
-import 'package:tabata/presentation/tabata_form_pages/cubit/tabata_form_cubit.dart';
 import 'package:tabata/resources/values.dart';
 
 class StartTrainingButtonWidget extends StatelessWidget {
+  final String title;
+
+  const StartTrainingButtonWidget({
+    Key? key,
+    required this.title,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -17,7 +21,8 @@ class StartTrainingButtonWidget extends StatelessWidget {
         child: Container(
           height: Dimens.homeButtonHeight(context),
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(Dimens.home_page_buttons_radius),
+              borderRadius:
+                  BorderRadius.circular(Dimens.home_page_buttons_radius),
               gradient: LinearGradient(
                 colors: [
                   AppColors.homePageTrainingButtonInitial,
@@ -32,11 +37,12 @@ class StartTrainingButtonWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(Dimens.start_training_button_title_padding),
+                    padding: const EdgeInsets.all(
+                        Dimens.start_training_button_title_padding),
                     child: FittedBox(
                       fit: BoxFit.fitWidth,
                       child: Text(
-                        Strings.start_training,
+                        title,
                         style: TextStyles.start_training,
                       ),
                     ),
@@ -53,17 +59,7 @@ class StartTrainingButtonWidget extends StatelessWidget {
             ],
           ),
         ),
-        onTap: () {
-          context.read<TabataFormCubit>().startNewRoutine();
-          Navigator.push(
-            context,
-            PageRouteBuilder(
-              pageBuilder: (c, a1, a2) => InitialFormPage(),
-              transitionsBuilder: (c, anim, a2, child) => FadeTransition(opacity: anim, child: child),
-              transitionDuration: Duration(milliseconds: Values.transition_page_duration),
-            ),
-          );
-        },
+        onTap: () {},
       ),
     );
   }

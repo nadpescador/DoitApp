@@ -12,17 +12,18 @@ class AppColors {
   static const Color inactive_button_background = _grey;
 
   //Timer colors
-  static Color playingTimerRing = Colors.grey[300];
-  static Color playingTimerFill = Colors.green[400];
-  static Color playingTimerBackground = Colors.green[500];
+  static Color? playingTimerRing = Colors.grey[300];
+  static Color? playingTimerFill = Colors.green[400];
+  static Color? playingTimerBackground = Colors.green[500];
 
-  static Color restingTimerRing = Colors.amber[300];
-  static Color restingTimerFill = Colors.amber[100];
-  static Color restingTimerBackground = Colors.amber[600];
+  static Color? restingTimerRing = Colors.amber[300];
+  static Color? restingTimerFill = Colors.amber[100];
+  static Color? restingTimerBackground = Colors.amber[600];
 
   static const Color tabata_work_background = _bg_grey;
 
-  static Color homePageTrainingHistoricalButtonInitial = Colors.orange.withOpacity(0.8);
+  static Color homePageTrainingHistoricalButtonInitial =
+      Colors.orange.withOpacity(0.8);
   static Color homePageTrainingHistoricalButtonEnd = Colors.orange;
 
   static Color homePageTrainingButtonInitial = Colors.green.withOpacity(0.8);

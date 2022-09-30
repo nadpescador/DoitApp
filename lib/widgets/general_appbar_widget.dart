@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:tabata/resources/colors.dart';
 
-class GeneralAppbarWidget extends StatelessWidget implements PreferredSizeWidget {
+class GeneralAppbarWidget extends StatelessWidget
+    implements PreferredSizeWidget {
   GeneralAppbarWidget({
-    Key key,
+    Key? key,
     this.appbarTitle = '',
-    this.appbarBackground,
+    required this.appbarBackground,
     this.height = 60,
   }) : super(key: key);
 
@@ -24,7 +25,8 @@ class GeneralAppbarWidget extends StatelessWidget implements PreferredSizeWidget
           color: AppColors.historical_training_border_color,
         ),
       ),
-      title: Text(appbarTitle, style: TextStyle(color: Color.fromARGB(255, 68, 65, 65))),
+      title: Text(appbarTitle,
+          style: TextStyle(color: Color.fromARGB(255, 68, 65, 65))),
       backgroundColor: Colors.grey[50] ?? appbarBackground,
       foregroundColor: Colors.white,
     );

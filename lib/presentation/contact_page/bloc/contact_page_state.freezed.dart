@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'contact_page_state.dart';
 
@@ -9,40 +11,43 @@ part of 'contact_page_state.dart';
 
 T _$identity<T>(T value) => value;
 
-/// @nodoc
-class _$ContactPageStateTearOff {
-  const _$ContactPageStateTearOff();
-
-// ignore: unused_element
-  ContactPageStateLoading loading() {
-    return ContactPageStateLoading();
-  }
-}
-
-/// @nodoc
-// ignore: unused_element
-const $ContactPageState = _$ContactPageStateTearOff();
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$ContactPageState {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult loading(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() loading,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult loading(),
-    @required TResult orElse(),
-  });
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? loading,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult loading(ContactPageStateLoading value),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult loading(ContactPageStateLoading value),
-    @required TResult orElse(),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(ContactPageStateLoading value) loading,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ContactPageStateLoading value)? loading,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ContactPageStateLoading value)? loading,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -63,25 +68,27 @@ class _$ContactPageStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $ContactPageStateLoadingCopyWith<$Res> {
-  factory $ContactPageStateLoadingCopyWith(ContactPageStateLoading value,
-          $Res Function(ContactPageStateLoading) then) =
-      _$ContactPageStateLoadingCopyWithImpl<$Res>;
+abstract class _$$ContactPageStateLoadingCopyWith<$Res> {
+  factory _$$ContactPageStateLoadingCopyWith(_$ContactPageStateLoading value,
+          $Res Function(_$ContactPageStateLoading) then) =
+      __$$ContactPageStateLoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$ContactPageStateLoadingCopyWithImpl<$Res>
+class __$$ContactPageStateLoadingCopyWithImpl<$Res>
     extends _$ContactPageStateCopyWithImpl<$Res>
-    implements $ContactPageStateLoadingCopyWith<$Res> {
-  _$ContactPageStateLoadingCopyWithImpl(ContactPageStateLoading _value,
-      $Res Function(ContactPageStateLoading) _then)
-      : super(_value, (v) => _then(v as ContactPageStateLoading));
+    implements _$$ContactPageStateLoadingCopyWith<$Res> {
+  __$$ContactPageStateLoadingCopyWithImpl(_$ContactPageStateLoading _value,
+      $Res Function(_$ContactPageStateLoading) _then)
+      : super(_value, (v) => _then(v as _$ContactPageStateLoading));
 
   @override
-  ContactPageStateLoading get _value => super._value as ContactPageStateLoading;
+  _$ContactPageStateLoading get _value =>
+      super._value as _$ContactPageStateLoading;
 }
 
 /// @nodoc
+
 class _$ContactPageStateLoading
     with DiagnosticableTreeMixin
     implements ContactPageStateLoading {
@@ -95,12 +102,14 @@ class _$ContactPageStateLoading
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties..add(DiagnosticsProperty('type', 'ContactPageState.loading'));
+    properties.add(DiagnosticsProperty('type', 'ContactPageState.loading'));
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is ContactPageStateLoading);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ContactPageStateLoading);
   }
 
   @override
@@ -108,20 +117,26 @@ class _$ContactPageStateLoading
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult loading(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() loading,
   }) {
-    assert(loading != null);
     return loading();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult loading(),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? loading,
   }) {
-    assert(orElse != null);
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
+    required TResult orElse(),
+  }) {
     if (loading != null) {
       return loading();
     }
@@ -130,20 +145,26 @@ class _$ContactPageStateLoading
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult loading(ContactPageStateLoading value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(ContactPageStateLoading value) loading,
   }) {
-    assert(loading != null);
     return loading(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult loading(ContactPageStateLoading value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ContactPageStateLoading value)? loading,
   }) {
-    assert(orElse != null);
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ContactPageStateLoading value)? loading,
+    required TResult orElse(),
+  }) {
     if (loading != null) {
       return loading(this);
     }
