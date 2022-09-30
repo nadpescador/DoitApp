@@ -3,18 +3,17 @@ import 'package:flutter/material.dart';
 class GenericButtonWidget extends StatelessWidget {
   const GenericButtonWidget({
     required this.buttonLabel,
+    required this.onPressed,
     this.borderRadius = 10,
     this.bgColor = Colors.green,
-    required this.onPressed,
     this.widthRatio = 0.75,
     this.textStyle = const TextStyle(
-        color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+      color: Colors.white,
+      fontSize: 16,
+      fontWeight: FontWeight.bold,
+    ),
     Key? key,
-  })  : assert(buttonLabel != null),
-        assert(
-          onPressed != null,
-        ),
-        super();
+  }) : super(key: key);
 
   final double widthRatio;
   final String buttonLabel;
@@ -44,6 +43,9 @@ class GenericButtonWidget extends StatelessWidget {
         child: Text(
           buttonLabel,
           style: textStyle,
+        ),
+        style: TextButton.styleFrom(
+          foregroundColor: textStyle.color,
         ),
         onPressed: onPressed,
       ),
