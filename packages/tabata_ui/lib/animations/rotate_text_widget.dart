@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class RotateTextWidget extends StatelessWidget {
   const RotateTextWidget({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
