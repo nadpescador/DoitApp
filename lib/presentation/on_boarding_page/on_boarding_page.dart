@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:tabata/presentation/on_boarding_page/widgets/on_boarding_text.dart';
 import 'package:tabata/presentation/on_boarding_page/widgets/swipe_widget.dart';
@@ -41,7 +43,15 @@ class OnBoardingPage extends StatelessWidget {
                         height: 338,
                         width: 270,
                       ),
-                      SwipeWidget(),
+                      GestureDetector(
+                        onHorizontalDragUpdate: (details) => {
+                          if (details.delta.dx > 1)
+                            {
+                              Navigator.of(context).pushNamed('login'),
+                            }
+                        },
+                        child: SwipeWidget(),
+                      ),
                       SizedBox(
                         width: 20,
                       ),
