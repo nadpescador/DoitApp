@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 class LogoMovementWidget extends StatelessWidget {
   const LogoMovementWidget({
-    @required this.image,
-    Key key,
+    required this.image,
+    Key? key,
   })  : assert(image != null),
         super(key: key);
 
