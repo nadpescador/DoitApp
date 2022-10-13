@@ -17,13 +17,15 @@ class LoginInputs extends StatelessWidget {
       children: [
         GenericInput(
           label: "Usuario",
-          controller: usernameController,
           hint: "Username",
+          controller: usernameController,
         ),
         GenericInput(
           label: "Contraseña",
-          controller: passwordController,
           hint: "*****",
+          controller: passwordController,
+          autocorrect: false,
+          enableSuggestions: false,
           obscureText: true,
         ),
       ],

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:tabata/resources/colors.dart';
 
 class TextStyles {
   static const TextStyle top_timer_messages = TextStyle(
@@ -44,5 +46,22 @@ class TextStyles {
     fontSize: 20,
     color: Colors.white,
     fontWeight: FontWeight.bold,
+  );
+
+  static TextStyle loginHeaders = GoogleFonts.openSans(
+    fontSize: 36,
+    color: AppColors.scaffoldBackgroundColor,
+    fontWeight: FontWeight.w600,
+  );
+
+  static TextStyle label = GoogleFonts.openSans(
+    fontSize: 20,
+    color: Color.fromRGBO(132, 132, 132, 1),
+    fontWeight: FontWeight.w600,
+  );
+
+  static TextStyle hint = GoogleFonts.openSans(
+    fontSize: 14,
+    color: Colors.black12,
   );
 }

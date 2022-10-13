@@ -5,15 +5,15 @@ class LoginButtons extends StatelessWidget {
   const LoginButtons({
     required this.onLogin,
     this.onRegister,
-    this.height,
   });
 
-  final double? height;
   final VoidCallback onLogin;
   final VoidCallback? onRegister;
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height * 0.3;
+
     return SizedBox(
       height: height,
       child: Column(

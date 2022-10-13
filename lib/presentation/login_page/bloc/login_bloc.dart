@@ -17,13 +17,15 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     emit(_Loading());
 
     await Future.delayed(_duration1);
-    if (event.password == "123456") {
+
+    if (event.password == "123456" && event.username.isNotEmpty) {
       emit(_Succesful());
     } else {
       emit(_Error());
     }
 
     await Future.delayed(_duration2);
+
     emit(_Initial());
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tabata/resources/text_styles.dart';
 
 class OnBoardingText extends StatelessWidget {
   const OnBoardingText({
@@ -8,14 +9,10 @@ class OnBoardingText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 250,
+      width: 200,
       child: Text(
         "Challenge your friends.",
-        style: const TextStyle(
-          color: Color.fromRGBO(79, 82, 255, 1),
-          fontSize: 46,
-          fontFamily: '',
-        ),
+        style: TextStyles.loginHeaders,
         textAlign: TextAlign.left,
       ),
     );
