@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tabata/resources/colors.dart';
 
 class LoginLayout extends StatelessWidget {
   const LoginLayout({
@@ -12,32 +13,34 @@ class LoginLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     double height_ = MediaQuery.of(context).size.height;
     Radius radius = Radius.circular(25);
-    return Scaffold(
-      body: Stack(
-        children: [
-          Align(
-            alignment: Alignment.topCenter,
-            child: Container(
-              height: height_ * 0.15,
-              width: double.infinity,
-              color: Color.fromRGBO(70, 73, 238, 1),
-            ),
-          ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  topLeft: radius,
-                  topRight: radius,
-                ),
-                color: Theme.of(context).scaffoldBackgroundColor,
+    return SafeArea(
+      child: Scaffold(
+        body: Stack(
+          children: [
+            Align(
+              alignment: Alignment.topCenter,
+              child: Container(
+                height: height_ * 0.15,
+                width: double.infinity,
+                color: AppColors.scaffoldBackgroundColor,
               ),
-              height: height_ * 0.925,
-              child: child,
             ),
-          )
-        ],
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    topLeft: radius,
+                    topRight: radius,
+                  ),
+                  color: Theme.of(context).scaffoldBackgroundColor,
+                ),
+                height: height_ * 0.925,
+                child: Center(child: child),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

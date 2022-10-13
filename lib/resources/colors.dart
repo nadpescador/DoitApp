@@ -33,4 +33,6 @@ class AppColors {
   static const Color historical_training_last_date = _grey;
   static const Color historical_training_border_color = _grey;
   static const Color historical_training_trailing_icon_color = _green;
+
+  static const Color scaffoldBackgroundColor = Color.fromRGBO(70, 73, 238, 1);
 }

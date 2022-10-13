@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 class GenericButtonWidget extends StatelessWidget {
   const GenericButtonWidget({
     required this.buttonLabel,
-    required this.onPressed,
     this.borderRadius = 10,
     this.bgColor = Colors.green,
     this.widthRatio = 0.75,
+    this.onPressed,
     this.textStyle = const TextStyle(
       color: Colors.white,
       fontSize: 16,
@@ -19,7 +19,7 @@ class GenericButtonWidget extends StatelessWidget {
   final String buttonLabel;
   final double borderRadius;
   final Color bgColor;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final TextStyle textStyle;
 
   @override
