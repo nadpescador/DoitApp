@@ -1,10 +1,11 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:hive/hive.dart';
 import 'package:sound_provider/sound_provider.dart';
 import 'package:tabata/app.dart';
 import 'package:get_it/get_it.dart';
 import 'package:flutter/material.dart';
 import 'package:tabata/core/dependency_injection.dart' as inj;
-import 'package:historical_repository/historical_repositories.dart';
+import 'package:tabata/firebase_options.dart';
 import 'package:wakelock/wakelock.dart';
 
 void main() async {
@@ -12,6 +13,9 @@ void main() async {
 
   await inj.init();
   await Wakelock.enable();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
   runApp(
     App(

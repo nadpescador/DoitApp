@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "576335616404",
+    "project_id": "tabata-do-it-app",
+    "storage_bucket": "tabata-do-it-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:576335616404:android:707f4531a74e7701901781",
+        "android_client_info": {
+          "package_name": "com.work.tabata"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "576335616404-57p0kljf5c64knqq46pkt0kv7dgib23n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6_VToOs_WriZa5fs_928wym9_q039CLw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "576335616404-57p0kljf5c64knqq46pkt0kv7dgib23n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

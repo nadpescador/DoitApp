@@ -37,13 +37,15 @@ class _UserLoginState extends State<UserLogin> {
                       usernameController: usernameController,
                       passwordController: passwordController,
                     ),
-                    LoginButtons(
-                      onLogin: () => context.read<LoginBloc>().add(
-                            LoginEvent.attemptedLogin(
-                              username: usernameController.text,
-                              password: passwordController.text,
+                    Expanded(
+                      child: LoginButtons(
+                        onLogin: () => context.read<LoginBloc>().add(
+                              LoginEvent.attemptedLogin(
+                                username: usernameController.text,
+                                password: passwordController.text,
+                              ),
                             ),
-                          ),
+                      ),
                     ),
                   ],
                 ),

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get_it/get_it.dart';
 import 'package:sound_provider/sound_provider.dart';
-import 'package:historical_repository/historical_repositories.dart';
 import 'package:tabata/presentation/error_pages/error_page.dart';
 import 'package:tabata/presentation/contact_page/contact_page.dart';
 import 'package:tabata/presentation/home_page/view/home_page.dart';

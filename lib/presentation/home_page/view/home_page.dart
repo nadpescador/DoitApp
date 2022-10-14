@@ -11,7 +11,16 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: Text('Hola, $username'),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text('Hola, $username'),
+            ElevatedButton(
+              onPressed: () => Navigator.of(context).pushNamed('onBoarding'),
+              child: Text("Return to onboarding"),
+            ),
+          ],
+        ),
       ),
     );
   }

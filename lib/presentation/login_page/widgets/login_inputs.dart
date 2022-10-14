@@ -19,6 +19,9 @@ class LoginInputs extends StatelessWidget {
           label: "Usuario",
           hint: "Username",
           controller: usernameController,
+          autocorrect: false,
+          enableSuggestions: false,
+          obscureText: true,
         ),
         GenericInput(
           label: "Contraseña",

@@ -19,26 +19,28 @@ class LoginButtons extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Column(
-            children: [
-              GenericButtonWidget(
-                buttonLabel: "Log In",
-                onPressed: onLogin,
-                bgColor: Color.fromRGBO(255, 119, 107, 1),
-              ),
-              onRegister != null
-                  ? GenericButtonWidget(
-                      buttonLabel: "Registrarse",
-                      onPressed: onRegister,
-                      bgColor: Colors.white,
-                      textStyle: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: Color.fromRGBO(132, 132, 132, 1),
-                      ),
-                    )
-                  : Container(),
-            ],
+          Expanded(
+            child: Column(
+              children: [
+                GenericButtonWidget(
+                  buttonLabel: "Log In",
+                  onPressed: onLogin,
+                  bgColor: Color.fromRGBO(255, 119, 107, 1),
+                ),
+                onRegister != null
+                    ? GenericButtonWidget(
+                        buttonLabel: "Registrarse",
+                        onPressed: onRegister,
+                        bgColor: Colors.white,
+                        textStyle: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromRGBO(132, 132, 132, 1),
+                        ),
+                      )
+                    : Container(),
+              ],
+            ),
           ),
           TextButton(
             style: TextButton.styleFrom(
