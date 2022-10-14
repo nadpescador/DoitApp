@@ -14,8 +14,12 @@ void main() async {
   await inj.init();
   await Wakelock.enable();
   await Firebase.initializeApp(
+    name: "Do It App",
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+  final app = Firebase.app();
+  print(app.name);
 
   runApp(
     App(
